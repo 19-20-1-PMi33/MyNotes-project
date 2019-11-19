@@ -16,14 +16,14 @@ using System.Windows.Shapes;
 namespace MyNotes
 {
     /// <summary>
-    /// Interaction logic for LoginPage.xaml
+    /// Interaction logic for RegisterPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class RegisterPage : Page
     {
-        public LoginPage()
+        public RegisterPage()
         {
             InitializeComponent();
-            this.DataContext = new LoginVM();
+            this.DataContext = new RegisterVM();
         }
     }
 }
