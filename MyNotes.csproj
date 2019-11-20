@@ -76,6 +76,7 @@
     </ApplicationDefinition>
     <Compile Include="Model\Entities\Note.cs" />
     <Compile Include="Model\Entities\User.cs" />
+    <Compile Include="ViewModel\HomePageVM.cs" />
     <Compile Include="ViewModel\LoginVM.cs" />
     <Compile Include="ViewModel\RegisterVM.cs" />
     <Compile Include="View\HomePage.xaml.cs">
