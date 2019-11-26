@@ -8,10 +8,12 @@ using System.Windows;
 
 namespace MyNotes
 {
+    //nash project
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
+
     }
 }
