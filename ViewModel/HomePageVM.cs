@@ -1,11 +1,13 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Collections.ObjectModel;
+using System.Data.Entity;
+using System.Collections.Generic;
 
 namespace MyNotes
 {
     public class HomePageVM : INotifyPropertyChanged
     {
+        AppDbContext db;
         Note selectedNote;
         public Note SelectedNote
         {
@@ -16,15 +18,13 @@ namespace MyNotes
                 OnPropertyChanged("SelectedNote");
             }
         }
-        public ObservableCollection<Note> Notes { get; set; }
+        public IEnumerable<Note> Notes { get; set; }
 
         public HomePageVM()
         {
-            Notes = new ObservableCollection<Note>
-            {
-                new Note { Title="Test title 1", Description="Test descr 1", TimeModified="26.11.19 22:00" },
-                new Note { Title="Test title 2", Description="Test descr 2", TimeModified="26.11.19 23:00" }
-            };
+            db = new AppDbContext();
+            db.Notes.Load();
+            Notes = db.Notes.Local.ToBindingList();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
