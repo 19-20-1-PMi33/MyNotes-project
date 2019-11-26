@@ -25,5 +25,11 @@ namespace MyNotes
             InitializeComponent();
             this.DataContext = new LoginVM();
         }
+
+        void SignInButton_Click(object sender, RoutedEventArgs e)
+        {
+            // if (signed in)
+            this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
+        }
     }
 }

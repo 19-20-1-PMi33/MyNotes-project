@@ -6,9 +6,38 @@
       xmlns:local="clr-namespace:MyNotes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="HomePage" WindowHeight="450" WindowWidth="800" ShowsNavigationUI="False">
+      Title="HomePage" WindowHeight="450" WindowWidth="800" 
+      Background="White" ShowsNavigationUI="False">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.35*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Background="LightGray">
+            <Button Content="Notes" Margin="20,50,20,7" Background="White" />
+            <Button Content="Profile settings" Margin="20,7" Background="White"/>
+            <Button Content="Log out" Margin="20,7" Background="White"/>
+        </StackPanel>
+        <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
+        <StackPanel Grid.Column="2">
+            <StackPanel Orientation="Horizontal" Height="40" Background="Gray">
+                <Button Content="Add note" Background="White" Margin="10" Padding="10,0"/>
+                <Button Content="Sort notes" Background="White" Margin="10" Padding="10,0"/>
+                <Button Content="Search" Background="White" Margin="10" Padding="10,0"/>
+            </StackPanel>
+            <ListBox ItemsSource="{Binding Notes}" SelectedItem="{Binding SelectedNote}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="10">
+                            <TextBlock FontWeight="Bold" Text="{Binding Path=Title}"/>
+                            <TextBlock Text="{Binding Path=Description}"/>
+                            <TextBlock FontSize="9" Text="{Binding Path=TimeModified}" Margin="0,20,0,0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
     </Grid>
 </Page>

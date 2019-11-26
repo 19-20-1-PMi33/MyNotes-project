@@ -23,6 +23,7 @@ namespace MyNotes
         public HomePage()
         {
             InitializeComponent();
+            this.DataContext = new HomePageVM();
         }
     }
 }
