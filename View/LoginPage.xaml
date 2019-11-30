@@ -16,7 +16,7 @@
             <TextBox Margin="5"/>
             <TextBlock Text="Password" Margin="5"/>
             <TextBox x:Name="txt_box2" Margin="5"/>
-            <Button Content="Sign in" Margin="15" MaxWidth="100" Click="Button_Click"/>
+            <Button Content="Sign in" Margin="15" MaxWidth="100" Click="SignInButton_Click"/>
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Don't have an account?"/>
                 <TextBlock Margin="10,0,0,0">
