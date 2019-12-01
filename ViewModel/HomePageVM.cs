@@ -18,13 +18,21 @@ namespace MyNotes
                 OnPropertyChanged("SelectedNote");
             }
         }
-        public IEnumerable<Note> Notes { get; set; }
+        public List<Note> Notes { get; set; }
 
         public HomePageVM()
         {
             db = new AppDbContext();
-            db.Notes.Load();
-            Notes = db.Notes.Local.ToBindingList();
+            App.currentUser = new User { UserId = 1}; //mock
+            loadNotes();
+        }
+
+        async void loadNotes()
+        {
+            Notes = await db.Database.SqlQuery<Note>("SELECT Notes.NoteId, Title, Description, TimeModified " +
+                                                     "FROM Notes JOIN UserNotes ON Notes.NoteId = UserNotes.NoteId " +
+                                                     $"WHERE UserNotes.UserId = {App.currentUser.UserId}")
+                                                     .ToListAsync();            
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
