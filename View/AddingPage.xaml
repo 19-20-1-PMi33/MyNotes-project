@@ -1,4 +1,4 @@
-﻿<Page x:Class="MyNotes.HomePage"
+﻿<Page x:Class="MyNotes.AddingPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:MyNotes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="HomePage" WindowHeight="450" WindowWidth="800" 
+      Title="AddingPage" WindowHeight="450" WindowWidth="800" 
       Background="White" ShowsNavigationUI="False">
 
     <Grid>
@@ -16,19 +16,18 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <StackPanel Background="LightGray">
-            <Button Content="Notes" Margin="20,50,20,7" Background="White" />
-            <Button Content="Profile settings" Margin="20,7" Background="White"/>
-            <Button Content="Log out" Margin="20,7" Background="White"/>
+            <Button Content="Back" Margin="20,50,20,7" Background="White" />
+            <Button Content="Create table" Margin="20,7" Background="White"/>
+            <Button Content="Change type" Margin="20,7" Background="White"/>
+            <Button Content="Add image" Margin="20,7" Background="White"/>
         </StackPanel>
         <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
         <StackPanel Grid.Column="2">
-            <Canvas Height="40" Background="Gray">
-                <Button Canvas.Left="10" Content="Add note" Background="White" Margin="10" Padding="10,0"/>
-                <Button Canvas.Left="100" Content="Sort notes" Background="White" Margin="10" Padding="10,0"/>
-                <Button Canvas.Left="200" Content="Search" Background="White" Margin="10" Padding="10,0"/>
-                <Button Canvas.Right="20" Content="Remove" Background="White" Margin="10" Padding="10,0"
-                        Command="{Binding RemoveCommand}" CommandParameter="{Binding SelectedNote}"/>
-            </Canvas>
+            <StackPanel Orientation="Horizontal" Height="40" Background="Gray">
+                <Button Content="Share" Background="White" Margin="10" Padding="10,0"/>
+                <Button Content="Save" Background="White" Margin="10" Padding="10,0"/>
+                
+            </StackPanel>
             <ListBox ItemsSource="{Binding Notes}" SelectedItem="{Binding SelectedNote}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -40,9 +39,6 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            
         </StackPanel>
-        
     </Grid>
-    
 </Page>

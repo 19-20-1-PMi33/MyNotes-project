@@ -7,6 +7,5 @@ namespace MyNotes
         public AppDbContext() : base("DefaultConnection")
         {
         }
-        public DbSet<Note> Notes { get; set; }
     }
 }

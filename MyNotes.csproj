@@ -82,6 +82,7 @@
     <Compile Include="ViewModel\HomePageVM.cs" />
     <Compile Include="ViewModel\LoginVM.cs" />
     <Compile Include="ViewModel\RegisterVM.cs" />
+    <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
