@@ -10,17 +10,22 @@
       Background="White" ShowsNavigationUI="False">
 
     <Grid>
-        <Grid.ColumnDefinitions>
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.35*" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
-        <StackPanel Grid.Column="2">
+        <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" />-->
+        <StackPanel Grid.Column="1">
             <StackPanel Orientation="Horizontal" Height="40" Background="Gray">
                 <Button Content="Back" Background="White" Margin="10" Padding="10,0"/>
                 <Button Content="Save" Background="White" Margin="10" Padding="10,0"/>
             </StackPanel>
+        <TextBox MaxLength="50" >Title</TextBox>
+          <Separator></Separator>
+        <TextBox AcceptsReturn="True" Height="355" VerticalScrollBarVisibility="Auto"
+         HorizontalScrollBarVisibility="Auto">Text</TextBox>
         </StackPanel>
+    
     </Grid>
 </Page>
