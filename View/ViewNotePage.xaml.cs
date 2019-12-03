@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Xaml;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,19 +16,27 @@ using System.Windows.Shapes;
 namespace MyNotes
 {
     /// <summary>
-    /// Interaction logic for AddingPage.xaml
+    /// Interaction logic for ViewNotePage.xaml
     /// </summary>
-    public partial class AddingPage : Page
+    public partial class ViewNotePage : Page
     {
-        public AddingPage()
+        public ViewNotePage()
         {
             InitializeComponent();
-            this.DataContext = new AddingPageVM();
+            this.DataContext = new ViewNotePageVM();
         }
+
         void btnBack_Click(object sender, RoutedEventArgs e)
         {
             // if (signed in)
             this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
         }
+
+
+        //private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    TextBox textBox = (TextBox)sender;
+        //    MessageBox.Show(textBox.Text);
+        //}
     }
 }
