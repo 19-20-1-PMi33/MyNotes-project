@@ -26,6 +26,13 @@ namespace MyNotes
             this.DataContext = new AddingPageVM();
         }
 
+        void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            // if (signed in)
+            this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
+        }
+
+
         //private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         //{
         //    TextBox textBox = (TextBox)sender;

@@ -7,24 +7,26 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RegisterPage" WindowHeight="450" WindowWidth="800" 
-      Background="White" ShowsNavigationUI="False">
+      Background="#CEB3AB" ShowsNavigationUI="False">
 
     <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="300">
-            <TextBlock Text="Sign up" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,20"/>
-            <TextBlock Text="Username" Margin="5" />
-            <TextBox Margin="5"/>
-            <TextBlock Text="Email" Margin="5" />
-            <TextBox Margin="5"/>
-            <TextBlock Text="Password" Margin="5"/>
-            <PasswordBox Margin="5"/>
-            <Button Content="Sign up" Margin="15" MaxWidth="100" Click="SignUpButton_Click"/>
-            <StackPanel Orientation="Horizontal" Margin="10">
-                <TextBlock Text="Already have an account?"/>
+      <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="300">
+            <Label Content="Sign up" Foreground="White" FontSize="25" HorizontalAlignment="Center" />
+            <Separator></Separator>
+            <Label Content="Username" Foreground="White"/>
+            <TextBox Name="txtUsername" Background="#545d6a" Foreground="White" FontSize="18"/>
+            <Label Content="Email" Foreground="White"/>
+            <TextBox Name="txtEmail" Background="#545d6a" Foreground="White" FontSize="18"/>
+            <Label Content="Password" Foreground="White"/>
+            <PasswordBox Name="txtPassword" Background="#545d6a" Foreground="White" FontSize="18"/>
+
+            <Button Name="btnSignUp" Click="SignUpButton_Click" Content="Sign up" Margin="15" MaxWidth="100" Background="#545d6a" Foreground="White" FontSize="18" />
+            <StackPanel Orientation="Horizontal" Margin="10" Width="220">
+                <TextBlock Text="Already have an account?" />
                 <TextBlock Margin="10,0,0,0">
                     <Hyperlink NavigateUri="LoginPage.xaml">Sign in</Hyperlink>
                 </TextBlock>
             </StackPanel>
         </StackPanel>
-    </Grid>
+   </Grid>
 </Page>

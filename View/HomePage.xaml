@@ -15,7 +15,7 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <StackPanel Background="LightGray">
+        <StackPanel Background="Gray">
             <Button Content="Notes" Margin="20,50,20,7" Background="White" />
             <Button Content="Profile settings" Margin="20,7" Background="White"/>
             <Button Content="Log out" Margin="20,7" Background="White"/>

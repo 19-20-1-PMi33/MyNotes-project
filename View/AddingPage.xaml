@@ -10,16 +10,10 @@
       Background="White" ShowsNavigationUI="False">
 
     <Grid>
-        <!--<Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.35*" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" />-->
         <StackPanel Grid.Column="1">
             <StackPanel Orientation="Horizontal" Height="40" Background="Gray">
-                <Button Content="Back" Background="White" Margin="10" Padding="10,0"/>
-                <Button Content="Save" Background="White" Margin="10" Padding="10,0"/>
+                <Button Name ="btnBack" Click="btnBack_Click" Content="Back" Background="#545d6a" Margin="10" Padding="10,0" Foreground="White" />
+                <Button Name ="btnSave" Click="btnSave_Click" Content="Save" Background="#545d6a" Margin="10" Padding="10,0" Foreground="White"/>
             </StackPanel>
         <TextBox MaxLength="50" >Title</TextBox>
           <Separator></Separator>
