@@ -40,6 +40,9 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+            
         </StackPanel>
+        
     </Grid>
+    
 </Page>
