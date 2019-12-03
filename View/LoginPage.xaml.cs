@@ -31,7 +31,10 @@ namespace MyNotes
 
         void SignInButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (App.currentUser != null)
+            {
+                this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
+            }
             // if (signed in)
         }
     }

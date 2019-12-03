@@ -6,39 +6,35 @@ using MyNotes.Binding;
 namespace MyNotes
 {
     
-    public class User1:INotifyPropertyChanged
-    {
-        private string _email;
-        private string _password;
-        public string Email
-        {
-            get { return _email; }
-            set
-            {
-                _email = value;
-                OnPropertyChanged("Title");
-            }
-        }
-        public string Password
-        {
-            get { return _password; }
-            set
-            {
-                _password = value;
-                OnPropertyChanged("Title");
-            }
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
-    }
-    public class LoginVM
+    public class LoginVM:INotifyPropertyChanged
     {
         public LoginButton ButtonClick { get; set; }
-        User1 us1 = new User1();
+        public string Text { get; set; }
+
+        private string email;
+        public string Email
+        {
+            get { return this.email; }
+            set
+            {
+                if (!string.Equals(this.email, value))
+                {
+                    this.email = value;
+                }
+            }
+        }
+        private string password;
+        public string Password
+        {
+            get { return this.password; }
+            set
+            {
+                if (!string.Equals(this.password, value))
+                {
+                    this.password = value;
+                }
+            }
+        }
         string dbConnectionString = @"Data Source=D:\Users\Notes\MyNotes-project\Data\mynotesDB.db";
         
         public LoginVM()
@@ -53,34 +49,42 @@ namespace MyNotes
             try
             {
                 sqliteCon.Open();
-                string Query = "select * from Users where Email='1@ukr'and Password='1111' ";
+                string Query = "select * from Users where Email='"+Email.ToString()+ "' and Password='"+Password.ToString()+"' ";
                 SQLiteCommand createCommand = new SQLiteCommand(Query, sqliteCon);
 
                 createCommand.ExecuteNonQuery();
                 SQLiteDataReader dr = createCommand.ExecuteReader();
-
+                int id = 0;
                 int count = 0;
                 while (dr.Read())
                 {
                     count++;
+                    id = dr.GetInt32(0);
                 }
                 if (count == 1)
                 {
-                    
-                    
-                    //login.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
+                    App.currentUser = new User { UserId = id };
                 }
                 if (count > 1)
                 {
-                    Console.WriteLine("Duplicate Email and password,try again!");
+                    //DB unique component modify
                 }
                 if (count < 1)
                 {
-                    ButtonClick.IsEnabled = false;
-                    Console.WriteLine("Email and password is not correct!");
+                    Text = "Please sign up!";
+                    NotifyPropertyChanged("Text");
                 }
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
+        protected void NotifyPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
     }
+    
 }

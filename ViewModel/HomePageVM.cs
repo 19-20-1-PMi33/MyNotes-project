@@ -44,7 +44,7 @@ namespace MyNotes
         public HomePageVM()
         {
             db = new AppDbContext();
-            App.currentUser = new User { UserId = 1 }; //mock
+            //App.currentUser = new User { UserId = 1 }; //mock
             loadNotes();
         }
 
