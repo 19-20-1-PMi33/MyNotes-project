@@ -11,7 +11,8 @@ namespace MyNotes
         Note selectedNote;
 
         BindingList<Note> notes;
-        public BindingList<Note> Notes {
+        public BindingList<Note> Notes
+        {
             get { return notes; }
             set
             {
@@ -86,6 +87,7 @@ namespace MyNotes
                                                      "FROM Notes JOIN UserNotes ON Notes.NoteId = UserNotes.NoteId " +
                                                      $"WHERE UserNotes.UserId = {App.currentUser.UserId}")
                                                      .ToListAsync();
+
             Notes = new BindingList<Note>(query);
         }
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Xaml;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,20 +16,30 @@ using System.Windows.Shapes;
 namespace MyNotes
 {
     /// <summary>
-    /// Interaction logic for RegisterPage.xaml
+    /// Interaction logic for ViewNotePage.xaml
     /// </summary>
-    public partial class RegisterPage : Page
+    public partial class ViewNotePage : Page
     {
-        public RegisterPage()
+        public ViewNotePage()
         {
             InitializeComponent();
-            this.DataContext = new RegisterVM();
+            this.DataContext = new ViewNotePageVM();
         }
-
-        void SignUpButton_Click(object sender, RoutedEventArgs e)
+        void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            // if (signed up)
+            
+        }
+        
+        void btnBack_Click(object sender, RoutedEventArgs e)
+        {
             this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
         }
+
+
+        //private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    TextBox textBox = (TextBox)sender;
+        //    MessageBox.Show(textBox.Text);
+        //}
     }
 }

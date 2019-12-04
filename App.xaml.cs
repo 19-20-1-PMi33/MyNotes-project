@@ -15,4 +15,5 @@ namespace MyNotes
     {
         public static User currentUser;
     }
+
 }
