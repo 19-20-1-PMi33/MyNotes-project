@@ -7,8 +7,8 @@
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddingPage" WindowHeight="450" WindowWidth="800"
-      Background="White" ShowsNavigationUI="False">
-    
+      Background="#CEB3AB" ShowsNavigationUI="False">
+    <!--btn click is okay and btn save need to be reviewed-->
   <Grid>
     <StackPanel Grid.Column="1">
       <StackPanel Orientation="Horizontal" Height="40" Background="Gray">
@@ -19,12 +19,13 @@
                         Command="{Binding SaveCommand}" />
             
       </StackPanel>
-      <TextBox MaxLength="50" >Title</TextBox>
+        <Separator></Separator>
+            <TextBox MaxLength="50" Background="#EDE3E0">Title</TextBox>
         <!--<TextBlock  Margin="5" ><InlineUIContainer>
                     <Label Content="{Binding Text}" Width="294" Height="26" HorizontalContentAlignment="Center"/>
                 </InlineUIContainer></TextBlock>-->
       <Separator></Separator>
-      <TextBox AcceptsReturn="True" Height="355" VerticalScrollBarVisibility="Auto"
+            <TextBox AcceptsReturn="True" Background="#EDE3E0" Height="385" VerticalScrollBarVisibility="Auto"
        HorizontalScrollBarVisibility="Auto">Text</TextBox>
     </StackPanel>
 

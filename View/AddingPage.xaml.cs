@@ -28,8 +28,7 @@ namespace MyNotes
         }
         void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            // if (signed in)
-            this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
+            
         }
         
 
@@ -37,7 +36,6 @@ namespace MyNotes
 
         void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            // if (signed in)
             this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
         }
         //private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)

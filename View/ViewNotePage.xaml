@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ViewNotePage" WindowHeight="450" WindowWidth="800" 
-      Background="White" ShowsNavigationUI="False">
+      Background="#CEB3AB" ShowsNavigationUI="False">
 
     <Grid>
         <StackPanel Grid.Column="1">
@@ -15,9 +15,10 @@
                 <Button Name ="btnBack" Click="btnBack_Click" Content="Back" Background="#545d6a" Margin="10" Padding="10,0" Foreground="White" />
                 <Button Name ="btnSave" Click="btnSave_Click" Content="Save" Background="#545d6a" Margin="10" Padding="10,0" Foreground="White"/>
             </StackPanel>
-        <TextBox MaxLength="50" >Title</TextBox>
+            <Separator></Separator>
+        <TextBox MaxLength="50" Background="#EDE3E0">Title</TextBox>
           <Separator></Separator>
-        <TextBox AcceptsReturn="True" Height="355" VerticalScrollBarVisibility="Auto"
+            <TextBox AcceptsReturn="True" Background="#EDE3E0" Height="385" VerticalScrollBarVisibility="Auto"
          HorizontalScrollBarVisibility="Auto">Text</TextBox>
         </StackPanel>
     
