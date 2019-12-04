@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Data.Entity;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MyNotes
 {
@@ -10,9 +10,17 @@ namespace MyNotes
         AppDbContext db;
         Note selectedNote;
 
-        public BindingList<Note> Notes { get; set; }
+        BindingList<Note> notes;
+        public BindingList<Note> Notes {
+            get { return notes; }
+            set
+            {
+                notes = value;
+                OnPropertyChanged("Notes");
+            }
+        }
 
-        private RelayCommand removeCommand;
+        RelayCommand removeCommand;
         public RelayCommand RemoveCommand
         {
             get
@@ -28,6 +36,30 @@ namespace MyNotes
                         db.SaveChanges();
                     },
                     (obj) => selectedNote != null));
+            }
+        }
+
+        RelayCommand sortCommand;
+        public RelayCommand SortCommand
+        {
+            get
+            {
+                return sortCommand ??
+                    (sortCommand = new RelayCommand(sortRule =>
+                    {
+                        switch (sortRule.ToString())
+                        {
+                            case "Sort notes":
+                                Notes = new BindingList<Note>(Notes.OrderBy(note => note.NoteId).ToList());
+                                break;
+                            case "By title":
+                                Notes = new BindingList<Note>(Notes.OrderBy(note => note.Title).ToList());
+                                break;
+                            case "By time":
+                                Notes = new BindingList<Note>(Notes.OrderByDescending(note => note.TimeModified).ToList());
+                                break;
+                        }
+                    }));
             }
         }
 
