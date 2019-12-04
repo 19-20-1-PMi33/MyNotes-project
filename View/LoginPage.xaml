@@ -20,7 +20,7 @@
                 </InlineUIContainer></TextBlock>
             <TextBox x:Name="txt_box1" Text="{Binding Email}" Margin="5"/>
             <TextBlock  Margin="5"/>
-            <TextBox x:Name="txt_box2" Text="{Binding Password}" Margin="5"/>
+            <TextBox x:Name="txt_box2" Text="{Binding Password}" Margin="5" />
             <Button Content="Sign in" Margin="15" MaxWidth="100" Click="SignInButton_Click" Command="{Binding Path=ButtonClick}"/>
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Don't have an account?"/>

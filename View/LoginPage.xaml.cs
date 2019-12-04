@@ -14,10 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 namespace MyNotes
 {
-    public interface IView
-    {
-        void Close();
-    }
+    
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
@@ -27,6 +24,7 @@ namespace MyNotes
         {
             InitializeComponent();
             this.DataContext = new LoginVM();
+            
         }
 
         void SignInButton_Click(object sender, RoutedEventArgs e)
@@ -37,5 +35,8 @@ namespace MyNotes
             }
             // if (signed in)
         }
+       
+
     }
+
 }

@@ -54,6 +54,7 @@ namespace MyNotes
                                                      "FROM Notes JOIN UserNotes ON Notes.NoteId = UserNotes.NoteId " +
                                                      $"WHERE UserNotes.UserId = {App.currentUser.UserId}")
                                                      .ToListAsync();
+            
             Notes = new BindingList<Note>(query);
         }
 
