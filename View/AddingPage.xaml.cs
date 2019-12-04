@@ -26,10 +26,30 @@ namespace MyNotes
             InitializeComponent();
             this.DataContext = new AddingPageVM();
         }
+        void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            // if (signed in)
+            this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
+        }
+        
+
+
+
         void btnBack_Click(object sender, RoutedEventArgs e)
         {
             // if (signed in)
             this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
         }
+        //private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        //{
+        //    MessageBox.Show("Справка по приложению");
+        //}
+
+
+        //CommandBinding commandBinding = new CommandBinding();
+        //commandBinding.Command = ApplicationCommands.Save;
+        //    commandBinding.Executed += CommandBinding_Executed;
+        //    saveButton.CommandBindings.Add(commandBinding);
+
     }
 }

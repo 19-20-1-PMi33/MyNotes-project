@@ -16,6 +16,10 @@ using System.Windows.Shapes;
 
 namespace MyNotes
 {
+    public interface IView
+    {
+        void Close();
+    }
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
@@ -29,8 +33,11 @@ namespace MyNotes
 
         void SignInButton_Click(object sender, RoutedEventArgs e)
         {
+            if (App.currentUser != null)
+            {
+                this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
+            }
             // if (signed in)
-            this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
         }
     }
 }

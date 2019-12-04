@@ -75,6 +75,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Binding\LoginButton.cs" />
     <Compile Include="Data\AppDbContext.cs" />
     <Compile Include="Model\Entities\Note.cs" />
     <Compile Include="Model\Entities\User.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="ViewModel\HomePageVM.cs" />
     <Compile Include="ViewModel\LoginVM.cs" />
     <Compile Include="ViewModel\RegisterVM.cs" />
+    <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\ViewNotePageVM.cs" />
     <Compile Include="View\AddingPage.xaml.cs">
       <DependentUpon>AddingPage.xaml</DependentUpon>

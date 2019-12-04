@@ -8,14 +8,21 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddingPage" WindowHeight="450" WindowWidth="800"
       Background="White" ShowsNavigationUI="False">
-
+    
   <Grid>
     <StackPanel Grid.Column="1">
       <StackPanel Orientation="Horizontal" Height="40" Background="Gray">
         <Button Name ="btnBack" Click="btnBack_Click" Content="Back" Background="#545d6a" Margin="10" Padding="10,0" Foreground="White" />
-        <Button Name ="btnSave" Click="btnSave_Click" Content="Save" Background="#545d6a" Margin="10" Padding="10,0" Foreground="White"/>
+                <Button x:Name="saveButton" Command="ApplicationCommands.Save" Content="Save" Background="#545d6a" Margin="10" Padding="10,0" Foreground="White"/>
+        <!--<Button Name ="btnSave" Click="btnSave_Click" Content="Save" Background="#545d6a" Margin="10" Padding="10,0" Foreground="White"/>-->
+                <Button Name ="btnSave" Content="Save"  Margin="10" Padding="10,0 " Background="#545d6a" Foreground="White"
+                        Command="{Binding SaveCommand}" />
+            
       </StackPanel>
       <TextBox MaxLength="50" >Title</TextBox>
+        <!--<TextBlock  Margin="5" ><InlineUIContainer>
+                    <Label Content="{Binding Text}" Width="294" Height="26" HorizontalContentAlignment="Center"/>
+                </InlineUIContainer></TextBlock>-->
       <Separator></Separator>
       <TextBox AcceptsReturn="True" Height="355" VerticalScrollBarVisibility="Auto"
        HorizontalScrollBarVisibility="Auto">Text</TextBox>

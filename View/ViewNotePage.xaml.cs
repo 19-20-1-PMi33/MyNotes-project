@@ -25,7 +25,12 @@ namespace MyNotes
             InitializeComponent();
             this.DataContext = new ViewNotePageVM();
         }
-
+        void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            // if (signed in)
+            this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
+        }
+        
         void btnBack_Click(object sender, RoutedEventArgs e)
         {
             // if (signed in)
