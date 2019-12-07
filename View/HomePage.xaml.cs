@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xaml;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,13 @@ namespace MyNotes
             InitializeComponent();
             this.DataContext = new HomePageVM();
         }
+
+        void LogOutButton_Click(object sender, RoutedEventArgs e)
+        {
+            // if (signed in)
+            this.NavigationService.Navigate(new Uri("View/LoginPage.xaml", UriKind.Relative));
+        }
+        
 
         void sortRuleChanged(object sender, RoutedEventArgs e)
         {

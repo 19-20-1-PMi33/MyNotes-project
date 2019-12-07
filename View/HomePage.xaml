@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HomePage" WindowHeight="450" WindowWidth="800" 
-      Background="White" ShowsNavigationUI="False">
+      Background="#CEB3AB" ShowsNavigationUI="False">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -15,10 +15,11 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <StackPanel Background="LightGray">
+        <StackPanel Background="Gray">
             <Button Content="Notes" Margin="20,50,20,7" Background="White" />
             <Button Content="Profile settings" Margin="20,7" Background="White"/>
-            <Button Content="Log out" Margin="20,7" Background="White"/>
+            <Button Name="btnLogOut" Click="LogOutButton_Click" Content="Log out" Margin="20,7" Background="White"/>
+            
         </StackPanel>
         <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
         <StackPanel Grid.Column="2">
