@@ -19,19 +19,21 @@
             <Button Content="Notes" Margin="20,50,20,7" Background="White" />
             <Button Content="Profile settings" Margin="20,7" Background="White"/>
             <Button Name="btnLogOut" Click="LogOutButton_Click" Content="Log out" Margin="20,7" Background="White"/>
-            
         </StackPanel>
         <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
         <StackPanel Grid.Column="2">
-            <Canvas Height="40" Background="Gray">
-                <Button Canvas.Left="10" Content="Add note" Background="White" Margin="10" Padding="10,2"/>
-                <ComboBox SelectionChanged="sortRuleChanged" MinWidth="95" Canvas.Left="100" Margin="10" Padding="10,3">
+            <Canvas Height="50" Background="Gray">
+                <Button Canvas.Left="10" Content="Add note" Background="White" Margin="10,19" Padding="10,2"/>
+                <ComboBox SelectionChanged="sortRuleChanged" MinWidth="95" Canvas.Left="100" Margin="10,19" Padding="10,3">
                     <ComboBoxItem IsSelected="True">Sort notes</ComboBoxItem>
                     <ComboBoxItem>By title</ComboBoxItem>
                     <ComboBoxItem>By time</ComboBoxItem>
                 </ComboBox>
-                <Button Canvas.Left="215" Content="Search" Background="White" Margin="10" Padding="10,2"/>
-                <Button Canvas.Right="20" Content="Remove" Background="White" Margin="10" Padding="10,2"
+                <StackPanel Canvas.Left="215">
+                    <TextBlock Text="Search" Foreground="White" Margin="6,2,0,0"/>
+                    <TextBox TextChanged="searchStringChanged"  Background="White" Margin="5,2" Padding="5,2" MinWidth="150" MaxWidth="150"/>    
+                </StackPanel>                
+                <Button Canvas.Right="20" Content="Remove" Background="White" Margin="10,19" Padding="10,2"
                         Command="{Binding RemoveCommand}" CommandParameter="{Binding SelectedNote}"/>
             </Canvas>
             <ListBox ItemsSource="{Binding Notes}" SelectedItem="{Binding SelectedNote}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
@@ -45,9 +47,6 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-
         </StackPanel>
-
     </Grid>
-
 </Page>
