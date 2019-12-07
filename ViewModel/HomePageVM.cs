@@ -64,6 +64,36 @@ namespace MyNotes
             }
         }
 
+        RelayCommand searchCommand;
+        public RelayCommand SearchCommand
+        {
+            get
+            {
+                return searchCommand ??
+                    (searchCommand = new RelayCommand(search =>
+                    {                        
+                        string searchString = search.ToString().ToLower();
+
+                        if (string.IsNullOrWhiteSpace(searchString))
+                        {
+                            loadNotes();
+                        }
+                        else
+                        {
+                            loadNotes();
+                            List<Note> data = new List<Note>(Notes);
+                            Notes = new BindingList<Note>();
+
+                            foreach (Note note in data)
+                            {
+                                if (note.Title.ToLower().Contains(searchString) || note.Description.ToLower().Contains(searchString))
+                                    Notes.Add(note);
+                            }
+                        }
+                    }));
+            }
+        }
+
         public Note SelectedNote
         {
             get { return selectedNote; }
