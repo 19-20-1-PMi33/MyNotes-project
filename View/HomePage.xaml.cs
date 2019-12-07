@@ -32,7 +32,6 @@ namespace MyNotes
             // if (signed in)
             this.NavigationService.Navigate(new Uri("View/LoginPage.xaml", UriKind.Relative));
         }
-        
 
         void sortRuleChanged(object sender, RoutedEventArgs e)
         {
@@ -46,6 +45,17 @@ namespace MyNotes
                 if ((vm != null) && (vm.SortCommand.CanExecute(null)))
                     vm.SortCommand.Execute(sortRule);
             }
+        }
+
+        void searchStringChanged(object sender, RoutedEventArgs e)
+        {
+            HomePageVM vm = this.DataContext as HomePageVM;
+            TextBox textBox = (TextBox)sender;
+
+            string searchString = textBox.Text;
+
+            if ((vm != null) && (vm.SearchCommand.CanExecute(null)))
+                vm.SearchCommand.Execute(searchString);
         }
     }
 }
