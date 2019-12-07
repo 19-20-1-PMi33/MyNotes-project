@@ -5,14 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MyNotes"
       mc:Ignorable="d" 
-      d:DesignHeight="740.506" d:DesignWidth="1247.152"
+      d:DesignHeight="450" d:DesignWidth="800"
       Title="LoginPage" WindowHeight="450" WindowWidth="800" 
       Background="White" ShowsNavigationUI="False" Name="Main" >
+
     <Grid>
-        <DockPanel>
-            <Frame x:Name="mainFrm"/>
-        </DockPanel>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="300">
+
 
             <TextBlock Text="Sign in" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,20"/>
             <TextBlock  Margin="5" ><InlineUIContainer>
@@ -23,6 +22,7 @@
             <PasswordBox x:Name="pass" Margin="5"/>
             <Button Content="Sign in" Margin="15" MaxWidth="100" Click="SignInButton_Click"/>
             <StackPanel Orientation="Horizontal" Margin="10">
+
                 <TextBlock Text="Don't have an account?"/>
                 <TextBlock Margin="10,0,0,0">
                     <Hyperlink NavigateUri="RegisterPage.xaml">Sign up</Hyperlink>
