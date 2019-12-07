@@ -75,6 +75,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Binding\RegisterButton.cs" />
     <Compile Include="Binding\LoginButton.cs" />
     <Compile Include="Data\AppDbContext.cs" />
     <Compile Include="Model\Entities\Note.cs" />
@@ -151,6 +152,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Resources\password.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

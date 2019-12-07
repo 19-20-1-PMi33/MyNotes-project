@@ -13,9 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Globalization;
 namespace MyNotes
 {
-    
+
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
@@ -28,15 +29,39 @@ namespace MyNotes
             
         }
 
+
+
         void SignInButton_Click(object sender, RoutedEventArgs e)
         {
-            if (App.currentUser != null)
+            
+            LoginVM login = new LoginVM();
+            login.Action1(txt_box1.Text, pass.Password.ToString());
+            if (txt_box1.Text == null || pass.Password.ToString() == null ||
+                 string.IsNullOrWhiteSpace(txt_box1.Text) ||
+                string.IsNullOrWhiteSpace(pass.Password.ToString()))
             {
-                this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
+                MessageBox.Show("All rows must be fill in!");
+            }
+            else
+            {
+                if (App.currentUser != null)
+                {
+                    this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
+                }
+                else
+                {
+                    MessageBox.Show("Account doesn`t exist!");
+                }
             }
             // if (signed in)
         }
-       
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext != null)
+            {
+                ((dynamic)this.DataContext).Password = ((PasswordBox)sender).Password;
+            }
+        }
 
     }
 
