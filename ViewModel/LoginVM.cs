@@ -8,57 +8,21 @@ namespace MyNotes
     
     public class LoginVM:INotifyPropertyChanged
     {
-        public LoginButton ButtonClick { get; set; }
-        public string Text { get; set; }
-
-        AppDbContext db;
-       
-        private string email;
-        public string Email
-        {
-            get { return this.email; }
-            set
-            {
-                if (!string.Equals(this.email, value))
-                {
-                    this.email = value;
-                }
-            }
-        }
-        private string password;
-        public string Password
-        {
-            get { return this.password; }
-            set
-            {
-                if (!string.Equals(this.password, value))
-                {
-                    this.password = value;
-                }
-            }
-        }
-       
-
-        //string dbConnectionString = @"Data Source=D:\Users\Notes\MyNotes-project\Data\mynotesDB.db";
-
-        public LoginVM()
-        {
-            ButtonClick = new LoginButton(Action1);
-            ButtonClick.IsEnabled = true;
-            db = new AppDbContext();
-            
-        }
+        //public string Password { private get; set; }
         
+        string dbConnectionString = @"Data Source=..\..\Data\mynotesDB.db";
 
-        private void Action1() {
+        public LoginVM() {  }
 
-            //SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
-            var dbConnection = db.Database.Connection as SQLiteConnection;            
+        public void Action1(string Email,string Password) {
+
+            SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
+            // var dbConnection = db.Database.Connection as SQLiteConnection;            
             try
                 {
-                    dbConnection.Open();
-                    string Query = "select * from Users where Email='" + Email.ToString() + "' and Password='" + Password.ToString() + "' ";
-                    SQLiteCommand createCommand = new SQLiteCommand(Query, dbConnection);
+                    sqliteCon.Open();
+                    string Query = "select * from Users where Email='" + Email + "' and Password='" + Password + "' ";
+                    SQLiteCommand createCommand = new SQLiteCommand(Query, sqliteCon);
 
                     createCommand.ExecuteNonQuery();
                     SQLiteDataReader dr = createCommand.ExecuteReader();
@@ -71,17 +35,7 @@ namespace MyNotes
                     }
                     if (count == 1)
                     {
-                        App.currentUser = new User { UserId = id };
-                        
-                    }
-                    if (count > 1)
-                    {
-                        //DB unique component modify
-                    }
-                    if (count < 1)
-                    {
-                        Text = "Please sign up!";
-                        NotifyPropertyChanged("Text");
+                        App.currentUser = new User { UserId = id };                        
                     }
                 }
                 catch (Exception ex) { Console.WriteLine(ex.Message); }

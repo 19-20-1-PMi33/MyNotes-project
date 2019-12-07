@@ -28,8 +28,27 @@ namespace MyNotes
 
         void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
+            RegisterVM register = new RegisterVM();
+            register.Action1(txt1.Text, txt2.Text, pass2.Password.ToString());
             // if (signed up)
-            this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
+            if (txt1.Text == null|| txt2.Text == null||
+                pass2.Password.ToString() == null|| string.IsNullOrWhiteSpace(txt1.Text)||
+                string.IsNullOrWhiteSpace(txt2.Text)|| string.IsNullOrWhiteSpace(pass2.Password.ToString()))
+            {
+                MessageBox.Show("All rows must be fill in!");
+            }
+            else
+            {
+               
+                if (App.currentUser != null)
+                {
+                    this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
+                }
+                else
+                {
+                    MessageBox.Show("Account already exists!");
+                }
+            }
         }
     }
 }

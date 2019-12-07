@@ -12,12 +12,15 @@
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="300">
             <TextBlock Text="Sign up" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+            <TextBlock  Margin="5" ><InlineUIContainer>
+                    <Label Content="{Binding Text2}" Width="294" Height="35" HorizontalContentAlignment="Center"/>
+                </InlineUIContainer></TextBlock>
             <TextBlock Text="Username" Margin="5" />
-            <TextBox Margin="5"/>
+            <TextBox x:Name="txt1" Margin="5" Text="{Binding UserName}"/>
             <TextBlock Text="Email" Margin="5" />
-            <TextBox Margin="5"/>
+            <TextBox x:Name="txt2" Margin="5" Text="{Binding Email}"/>
             <TextBlock Text="Password" Margin="5"/>
-            <PasswordBox Margin="5"/>
+            <PasswordBox x:Name="pass2" Margin="5"/>
             <Button Content="Sign up" Margin="15" MaxWidth="100" Click="SignUpButton_Click"/>
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Already have an account?"/>

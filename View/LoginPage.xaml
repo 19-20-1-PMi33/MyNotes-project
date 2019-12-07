@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="740.506" d:DesignWidth="1247.152"
       Title="LoginPage" WindowHeight="450" WindowWidth="800" 
-      Background="White" ShowsNavigationUI="False" Name="Main">
+      Background="White" ShowsNavigationUI="False" Name="Main" >
     <Grid>
         <DockPanel>
             <Frame x:Name="mainFrm"/>
@@ -20,8 +20,8 @@
                 </InlineUIContainer></TextBlock>
             <TextBox x:Name="txt_box1" Text="{Binding Email}" Margin="5"/>
             <TextBlock  Margin="5"/>
-            <TextBox x:Name="txt_box2" Text="{Binding Password}" Margin="5" />
-            <Button Content="Sign in" Margin="15" MaxWidth="100" Click="SignInButton_Click" Command="{Binding Path=ButtonClick}"/>
+            <PasswordBox x:Name="pass" Margin="5"/>
+            <Button Content="Sign in" Margin="15" MaxWidth="100" Click="SignInButton_Click"/>
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Don't have an account?"/>
                 <TextBlock Margin="10,0,0,0">
