@@ -56,6 +56,8 @@ namespace MyNotes
 
             if ((vm != null) && (vm.SearchCommand.CanExecute(null)))
                 vm.SearchCommand.Execute(searchString);
+
+            sortRuleChanged(sortBox, e);
         }
     }
 }
