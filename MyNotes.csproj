@@ -84,6 +84,7 @@
     <Compile Include="ViewModel\LoginVM.cs" />
     <Compile Include="ViewModel\RegisterVM.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\UserPageVM.cs" />
     <Compile Include="ViewModel\ViewNotePageVM.cs" />
     <Compile Include="View\AddingPage.xaml.cs">
       <DependentUpon>AddingPage.xaml</DependentUpon>
@@ -100,6 +101,9 @@
     </Compile>
     <Compile Include="View\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserPage.xaml.cs">
+      <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewNotePage.xaml.cs">
       <DependentUpon>ViewNotePage.xaml</DependentUpon>
@@ -119,6 +123,10 @@
     <Page Include="View\RegisterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\ViewNotePage.xaml">
       <Generator>MSBuild:Compile</Generator>
