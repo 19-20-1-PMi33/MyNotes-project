@@ -24,7 +24,7 @@
         <StackPanel Grid.Column="2">
             <Canvas Height="50" Background="Gray">
                 <Button Canvas.Left="10" Content="Add note" Background="White" Margin="10,19" Padding="10,2"/>
-                <ComboBox SelectionChanged="sortRuleChanged" MinWidth="95" Canvas.Left="100" Margin="10,19" Padding="10,3">
+                <ComboBox x:Name="sortBox" SelectionChanged="sortRuleChanged" MinWidth="95" Canvas.Left="100" Margin="10,19" Padding="10,3">
                     <ComboBoxItem IsSelected="True">Sort notes</ComboBoxItem>
                     <ComboBoxItem>By title</ComboBoxItem>
                     <ComboBoxItem>By time</ComboBoxItem>
