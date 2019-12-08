@@ -7,21 +7,23 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LoginPage" WindowHeight="450" WindowWidth="800" 
-      Background="White" ShowsNavigationUI="False" Name="Main" >
+      Background="#CEB3AB" ShowsNavigationUI="False" Name="Main" >
 
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="300">
 
 
-            <TextBlock Text="Sign in" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,20"/>
-            <TextBlock  Margin="5" ><InlineUIContainer>
+            <TextBlock Text="Sign in" Foreground="White" FontSize="25" HorizontalAlignment="Center" />
+            <Separator></Separator>
+            <TextBlock><InlineUIContainer>
                     <Label Content="{Binding Text}" Width="294" Height="26" HorizontalContentAlignment="Center"/>
                 </InlineUIContainer></TextBlock>
-            <TextBox x:Name="txt_box1" Text="{Binding Email}" Margin="5"/>
-            <TextBlock  Margin="5"/>
-            <PasswordBox x:Name="pass" Margin="5"/>
-            <Button Content="Sign in" Margin="15" MaxWidth="100" Click="SignInButton_Click"/>
-            <StackPanel Orientation="Horizontal" Margin="10">
+            <TextBlock Text="Email"  Foreground="White" FontSize="17"/>
+            <TextBox x:Name="txt_box1" Background="#545d6a" Foreground="White" FontSize="18" Text="{Binding Email}"/>
+            <TextBlock Text="Password"  Foreground="White" FontSize="17"/>
+            <PasswordBox x:Name="pass" Background="#545d6a" Foreground="White" FontSize="18" />
+            <Button Name="btnSignIn" Click="SignInButton_Click" Content="Sign In" Margin="15" MaxWidth="100" Background="#545d6a" Foreground="White" FontSize="18"/>
+            <StackPanel Orientation="Horizontal" Margin="10" Width="175">
 
                 <TextBlock Text="Don't have an account?"/>
                 <TextBlock Margin="10,0,0,0">
