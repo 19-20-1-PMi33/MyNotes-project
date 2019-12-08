@@ -17,14 +17,14 @@
         </Grid.ColumnDefinitions>
         <StackPanel Background="#8D8D92">
             <Button Content="Notes" Margin="20,50,20,7" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13"  />
-            <Button Content="Profile settings" Margin="20,7" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13"/>
+            <Button Content="Profile settings" Margin="20,7" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13"  Click="Button_Click"/>
             <Button Name="btnLogOut" Click="LogOutButton_Click" Content="Log out" Margin="20,7" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13"/>
         </StackPanel>
         <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
         <StackPanel Grid.Column="2">
             <Canvas Height="50" Background="#8D8D92">
                 <Button Canvas.Left="10" Content="Add note" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13" Margin="10,19" Padding="10,2" Click="addButton_Click"/>
-                <ComboBox SelectionChanged="sortRuleChanged" MinWidth="95" Canvas.Left="110" Padding="10,2" Foreground="#36413E" FontWeight="DemiBold" FontSize="13" Height="23" Canvas.Top="19">
+                <ComboBox x:Name="sortBox" SelectionChanged="sortRuleChanged" MinWidth="95" Canvas.Left="100" Margin="10,19" Padding="10,3" Foreground="#36413E" FontWeight="DemiBold" FontSize="13" Height="23" >
                     <ComboBoxItem IsSelected="True">Sort notes</ComboBoxItem>
                     <ComboBoxItem>By title</ComboBoxItem>
                     <ComboBoxItem>By time</ComboBoxItem>
