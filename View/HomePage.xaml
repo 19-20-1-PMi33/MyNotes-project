@@ -9,7 +9,8 @@
       Title="HomePage" WindowHeight="450" WindowWidth="800" 
       Background="#BEB2C8" ShowsNavigationUI="False">
 
-    <Grid>
+
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.35*" />
             <ColumnDefinition Width="Auto" />
@@ -21,8 +22,12 @@
             <Button Name="btnLogOut" Click="LogOutButton_Click" Content="Log out" Margin="20,7" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13"/>
         </StackPanel>
         <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
-        <StackPanel Grid.Column="2">
-            <Canvas Height="50" Background="#8D8D92">
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Canvas Grid.Row="0" Height="50"  Background="#8D8D92">
                 <Button Canvas.Left="10" Content="Add note" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13" Margin="10,19" Padding="10,2" Click="addButton_Click"/>
                 <ComboBox x:Name="sortBox" SelectionChanged="sortRuleChanged" MinWidth="95" Canvas.Left="100" Margin="10,19" Padding="10,3" Foreground="#36413E" FontWeight="DemiBold" FontSize="13" Height="23" >
                     <ComboBoxItem IsSelected="True">Sort notes</ComboBoxItem>
@@ -36,17 +41,17 @@
                 <Button Canvas.Right="20" Content="Remove" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13" Margin="10,19" Padding="10,2"
                         Command="{Binding RemoveCommand}" CommandParameter="{Binding SelectedNote}"/>
             </Canvas>
-            <ListBox ItemsSource="{Binding Notes}" SelectedItem="{Binding SelectedNote}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox Grid.Row="1" Background="#BEB2C8" ItemsSource="{Binding Notes}" SelectedItem="{Binding SelectedNote}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="10">
                             <TextBlock FontWeight="Bold" Text="{Binding Path=Title}"/>
-                            <TextBox Text="{Binding Path=Description}" TextWrapping="Wrap" MaxLength="250" />
+                            <TextBlock Text="{Binding Path=Description}" />
                             <TextBlock FontSize="9" Text="{Binding Path=TimeModified}" Margin="0,20,0,0"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-        </StackPanel>
+        </Grid>
     </Grid>
 </Page>
