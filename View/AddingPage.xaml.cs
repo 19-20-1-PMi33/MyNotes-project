@@ -38,6 +38,11 @@ namespace MyNotes
         {
             this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
         //private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         //{
         //    MessageBox.Show("Справка по приложению");

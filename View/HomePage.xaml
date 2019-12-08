@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HomePage" WindowHeight="450" WindowWidth="800" 
-      Background="#CEB3AB" ShowsNavigationUI="False">
+      Background="#BEB2C8" ShowsNavigationUI="False">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -15,25 +15,25 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <StackPanel Background="Gray">
-            <Button Content="Notes" Margin="20,50,20,7" Background="White" />
-            <Button Content="Profile settings" Margin="20,7" Background="White"/>
-            <Button Name="btnLogOut" Click="LogOutButton_Click" Content="Log out" Margin="20,7" Background="White"/>
+        <StackPanel Background="#8D8D92">
+            <Button Content="Notes" Margin="20,50,20,7" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13"  />
+            <Button Content="Profile settings" Margin="20,7" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13"/>
+            <Button Name="btnLogOut" Click="LogOutButton_Click" Content="Log out" Margin="20,7" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13"/>
         </StackPanel>
         <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
         <StackPanel Grid.Column="2">
-            <Canvas Height="50" Background="Gray">
-                <Button Canvas.Left="10" Content="Add note" Background="White" Margin="10,19" Padding="10,2"/>
-                <ComboBox SelectionChanged="sortRuleChanged" MinWidth="95" Canvas.Left="100" Margin="10,19" Padding="10,3">
+            <Canvas Height="50" Background="#8D8D92">
+                <Button Canvas.Left="10" Content="Add note" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13" Margin="10,19" Padding="10,2" Click="addButton_Click"/>
+                <ComboBox SelectionChanged="sortRuleChanged" MinWidth="95" Canvas.Left="110" Padding="10,2" Foreground="#36413E" FontWeight="DemiBold" FontSize="13" Height="23" Canvas.Top="19">
                     <ComboBoxItem IsSelected="True">Sort notes</ComboBoxItem>
                     <ComboBoxItem>By title</ComboBoxItem>
                     <ComboBoxItem>By time</ComboBoxItem>
                 </ComboBox>
-                <StackPanel Canvas.Left="215">
-                    <TextBlock Text="Search" Foreground="White" Margin="6,2,0,0"/>
-                    <TextBox TextChanged="searchStringChanged"  Background="White" Margin="5,2" Padding="5,2" MinWidth="150" MaxWidth="150"/>    
-                </StackPanel>                
-                <Button Canvas.Right="20" Content="Remove" Background="White" Margin="10,19" Padding="10,2"
+                <StackPanel Canvas.Left="215" Canvas.Top="1">
+                    <TextBlock Text="Search" Foreground="#36413E" FontWeight="DemiBold" Margin="6,2,0,0" Height="14" Width="154"/>
+                    <TextBox TextChanged="searchStringChanged"  Background="#D7D6D6" Foreground="#36413E" FontWeight="DemiBold" FontSize="13" Margin="5,2" Padding="5,2" MinWidth="150" MaxWidth="150" Height="23" Width="151"/>
+                </StackPanel>
+                <Button Canvas.Right="20" Content="Remove" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13" Margin="10,19" Padding="10,2"
                         Command="{Binding RemoveCommand}" CommandParameter="{Binding SelectedNote}"/>
             </Canvas>
             <ListBox ItemsSource="{Binding Notes}" SelectedItem="{Binding SelectedNote}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
@@ -41,7 +41,7 @@
                     <DataTemplate>
                         <StackPanel Margin="10">
                             <TextBlock FontWeight="Bold" Text="{Binding Path=Title}"/>
-                            <TextBlock Text="{Binding Path=Description}"/>
+                            <TextBox Text="{Binding Path=Description}" TextWrapping="Wrap" MaxLength="250" />
                             <TextBlock FontSize="9" Text="{Binding Path=TimeModified}" Margin="0,20,0,0"/>
                         </StackPanel>
                     </DataTemplate>

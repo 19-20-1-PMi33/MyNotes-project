@@ -57,5 +57,12 @@ namespace MyNotes
             if ((vm != null) && (vm.SearchCommand.CanExecute(null)))
                 vm.SearchCommand.Execute(searchString);
         }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("View/AddingPage.xaml", UriKind.Relative));
+        }
+
+        
     }
 }
