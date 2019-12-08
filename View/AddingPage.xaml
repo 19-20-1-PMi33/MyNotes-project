@@ -26,7 +26,7 @@
                 </InlineUIContainer></TextBlock>-->
       <Separator></Separator>
             <TextBox AcceptsReturn="True" Background="#D7D6D6" Height="385" VerticalScrollBarVisibility="Auto"
-       HorizontalScrollBarVisibility="Auto" TextChanged="TextBox_TextChanged" Margin="1,0,-1,0">Text</TextBox>
+       HorizontalScrollBarVisibility="Auto" >Text</TextBox>
     </StackPanel>
 
   </Grid>
