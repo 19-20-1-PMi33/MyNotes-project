@@ -17,8 +17,8 @@
             <Label Content="Change Email"  Foreground="#5D5E60" FontSize="17"/>
             <TextBox x:Name="txt2" Background="#D7D6D6" FontWeight="DemiBold" Foreground="#36413E" FontSize="18" />
             <Label Content="Change Password" Foreground="#5D5E60" FontSize="17"/>
-            <PasswordBox x:Name="pass2" Background="#D7D6D6" FontWeight="DemiBold" Foreground="#36413E" FontSize="18" />
-            <Button Content="Update" Margin="15" MaxWidth="100" Background="#5D5E60" Foreground="#D7D6D6" FontSize="18"  Width="100" Click="SignUpButton_Click" />
+            <PasswordBox x:Name="pass3" Background="#D7D6D6" FontWeight="DemiBold" Foreground="#36413E" FontSize="18" />
+            <Button Content="Update" Margin="15" MaxWidth="100" Background="#5D5E60" Foreground="#D7D6D6" FontSize="18"  Width="100" Click="Update_Click" />
             <Button Content="Back" Margin="15" MaxWidth="100" Background="#5D5E60" Foreground="#D7D6D6" FontSize="18"  Width="100" Click="Button_Click" />
             
         </StackPanel>
