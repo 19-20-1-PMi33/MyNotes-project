@@ -17,7 +17,7 @@
         </Grid.ColumnDefinitions>
         <StackPanel Background="Gray">
             <Button Content="Notes" Margin="20,50,20,7" Background="White" />
-            <Button Content="Profile settings" Margin="20,7" Background="White"/>
+            <Button Content="Profile settings" Margin="20,7" Background="White" Click="Button_Click"/>
             <Button Name="btnLogOut" Click="LogOutButton_Click" Content="Log out" Margin="20,7" Background="White"/>
         </StackPanel>
         <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" />

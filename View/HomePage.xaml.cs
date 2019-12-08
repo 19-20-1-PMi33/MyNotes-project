@@ -59,5 +59,10 @@ namespace MyNotes
 
             sortRuleChanged(sortBox, e);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("View/UserPage.xaml", UriKind.Relative));
+        }
     }
 }
