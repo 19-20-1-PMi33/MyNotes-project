@@ -7,24 +7,24 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RegisterPage" WindowHeight="450" WindowWidth="800" 
-      Background="#CEB3AB" ShowsNavigationUI="False">
+      Background="#BEB2C8" ShowsNavigationUI="False">
 
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="300">
-            <TextBlock Text="Sign up" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
+            <TextBlock Text="Sign up" Foreground="#5D5E60" FontSize="25" HorizontalAlignment="Center"/>
             <Separator></Separator>
             <TextBlock><InlineUIContainer>
-                    <Label Content="{Binding Text2}" Width="294" Height="35" HorizontalContentAlignment="Center"/>
+                    <Label Content="{Binding Text2}" Width="294"  HorizontalContentAlignment="Center"/>
                 </InlineUIContainer></TextBlock>
-            <TextBlock Text="Username"  Foreground="White" FontSize="17"/>
-            <TextBox x:Name="txt1" Background="#545d6a" Foreground="White" FontSize="18"  Text="{Binding UserName}"/>
-            <TextBlock Text="Email"  Foreground="White" FontSize="17"/>
-            <TextBox x:Name="txt2" Background="#545d6a" Foreground="White" FontSize="18" Text="{Binding Email}"/>
-            <TextBlock Text="Password"  Foreground="White" FontSize="17"/>
-            <PasswordBox x:Name="pass2" Background="#545d6a" Foreground="White" FontSize="18" />
-            <Button Content="Sign up" Margin="15" MaxWidth="100" Background="#545d6a" Foreground="White" FontSize="18" Click="SignUpButton_Click"/>
-            <StackPanel Orientation="Horizontal" Margin="10" Width="182">
-                <TextBlock Text="Already have an account?"/>
+            <TextBlock Text="Username"  Foreground="#5D5E60" FontSize="17"/>
+            <TextBox x:Name="txt1" Background="#D7D6D6" FontWeight="DemiBold" Foreground="#36413E" FontSize="18"  Text="{Binding UserName}"/>
+            <TextBlock Text="Email"  Foreground="#5D5E60" FontSize="17"/>
+            <TextBox x:Name="txt2" Background="#D7D6D6" FontWeight="DemiBold" Foreground="#36413E" FontSize="18" Text="{Binding Email}"/>
+            <TextBlock Text="Password"  Foreground="#5D5E60" FontSize="17"/>
+            <PasswordBox x:Name="pass2" Background="#D7D6D6" FontWeight="DemiBold" Foreground="#36413E" FontSize="18" />
+            <Button Content="Sign up" Margin="15" MaxWidth="100" Background="#5D5E60" Foreground="#D7D6D6" FontSize="18" Click="SignUpButton_Click"/>
+            <StackPanel Orientation="Horizontal" Margin="10" Width="193">
+                <TextBlock Text="Already have an account?" FontSize="13"/>
 
                 <TextBlock Margin="10,0,0,0">
                     <Hyperlink NavigateUri="LoginPage.xaml">Sign in</Hyperlink>
