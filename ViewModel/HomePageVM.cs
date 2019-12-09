@@ -9,6 +9,9 @@ namespace MyNotes
     {
         AppDbContext db;
         Note selectedNote;
+        RelayCommand removeCommand;
+        RelayCommand sortCommand;
+        RelayCommand searchCommand;
 
         BindingList<Note> notes;
         public BindingList<Note> Notes
@@ -21,7 +24,9 @@ namespace MyNotes
             }
         }
 
-        RelayCommand removeCommand;
+        /// <summary>
+        /// Gets command, that removes selected note
+        /// </summary>
         public RelayCommand RemoveCommand
         {
             get
@@ -40,7 +45,9 @@ namespace MyNotes
             }
         }
 
-        RelayCommand sortCommand;
+        /// <summary>
+        /// Gets command, that sorts notes on home page
+        /// </summary>
         public RelayCommand SortCommand
         {
             get
@@ -64,7 +71,9 @@ namespace MyNotes
             }
         }
 
-        RelayCommand searchCommand;
+        /// <summary>
+        /// Gets command, that performs searching note on home page
+        /// </summary>
         public RelayCommand SearchCommand
         {
             get
@@ -107,10 +116,12 @@ namespace MyNotes
         public HomePageVM()
         {
             db = new AppDbContext();
-            //App.currentUser = new User { UserId = 1 }; //mock
             loadNotes();
         }
-
+        
+        /// <summary>
+        /// Loads user notes from database
+        /// </summary>
         async void loadNotes()
         {
             List<Note> query = await db.Database.SqlQuery<Note>("SELECT Notes.NoteId, Title, Description, TimeModified " +
