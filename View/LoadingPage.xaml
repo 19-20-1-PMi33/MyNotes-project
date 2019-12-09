@@ -5,13 +5,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MyNotes"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800" Background="White"
+      d:DesignHeight="450" d:DesignWidth="800" Background="#7B7BD9"
       Title="LoadingPage">
 
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="300">
-            <ProgressBar Width="300" Foreground="MidnightBlue" Height="35" Minimum="0" Maximum="100" Value="{Binding WorkerState}"></ProgressBar>
+            <DockPanel>
+                <TextBlock HorizontalAlignment="Left" Foreground="#2A2A6E" Margin="0" TextWrapping="Wrap" FontSize="100" Text="MyNotes" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" />
+                <Image Height="100" Margin="10" Source="..\Resources\logo.png"/>
+            </DockPanel>
+            <ProgressBar Width="300" Foreground="#2A2A6E" Height="35" Minimum="0" Maximum="100" Value="{Binding WorkerState}"></ProgressBar>
         </StackPanel>
+
 
     </Grid>
 </Page>
