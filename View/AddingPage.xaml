@@ -7,27 +7,26 @@
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddingPage" WindowHeight="450" WindowWidth="800"
-      Background="#BEB2C8" ShowsNavigationUI="False">
+      Background="#CEB3AB" ShowsNavigationUI="False">
     <!--btn click is okay and btn save need to be reviewed-->
-  <Grid>
-    <StackPanel Grid.Column="1">
-            <StackPanel Orientation="Horizontal" Height="40" Background="#8D8D92">
-                <Button Name ="btnBack" Click="btnBack_Click" Content="Back" Background="#5D5E60" Margin="10" Padding="10,0" Foreground="#D7D6D6" />
-                <Button x:Name="saveButton" Command="ApplicationCommands.Save" Content="Save" Background="#545d6a" Margin="10" Padding="10,0" Foreground="#D7D6D6"/>
-        <!--<Button Name ="btnSave" Click="btnSave_Click" Content="Save" Background="#545d6a" Margin="10" Padding="10,0" Foreground="White"/>-->
-                <Button Name ="btnSave" Content="Save"  Margin="10" Padding="10,0 " Background="#5D5E60" Foreground="#D7D6D6"
+    <Grid>
+        <StackPanel Grid.Column="1">
+            <StackPanel Orientation="Horizontal" Height="40" Background="Gray">
+                <Button Name ="btnBack" Click="btnBack_Click" Content="Back" Background="#545d6a" Margin="10" Padding="10,0" Foreground="White" />
+                <!--<Button Name ="btnSave" Click="btnSave_Click" Content="Save" Background="#545d6a" Margin="10" Padding="10,0" Foreground="White"/>-->
+                <Button Name ="btnSave" Click="btnSave_Click" Content="Save"  Margin="10" Padding="10,0 " Background="#545d6a" Foreground="White"
                         Command="{Binding SaveCommand}" />
-            
-      </StackPanel>
-        <Separator></Separator>
-            <TextBox MaxLength="50" Background="#D7D6D6">Title</TextBox>
-        <!--<TextBlock  Margin="5" ><InlineUIContainer>
+
+            </StackPanel>
+            <Separator></Separator>
+            <TextBox x:Name="txt1" MaxLength="50" Background="#EDE3E0" Text="{Binding Title}"/>
+            <!--<TextBlock  Margin="5" ><InlineUIContainer>
                     <Label Content="{Binding Text}" Width="294" Height="26" HorizontalContentAlignment="Center"/>
                 </InlineUIContainer></TextBlock>-->
-      <Separator></Separator>
-            <TextBox AcceptsReturn="True" Background="#D7D6D6" Height="385" VerticalScrollBarVisibility="Auto"
-       HorizontalScrollBarVisibility="Auto" >Text</TextBox>
-    </StackPanel>
+            <Separator></Separator>
+            <TextBox x:Name="txt2" AcceptsReturn="True" Background="#EDE3E0" Height="385" VerticalScrollBarVisibility="Auto"
+       HorizontalScrollBarVisibility="Auto" Text="{Binding Description}"/>
+        </StackPanel>
 
-  </Grid>
+    </Grid>
 </Page>
