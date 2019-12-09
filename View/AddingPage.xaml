@@ -19,6 +19,8 @@
             <Separator></Separator>
             <TextBox x:Name="txt1" MaxLength="50" Background="#EDE3E0" Text="{Binding Title}"/>
             <Separator></Separator>
+            <Button x:Name="btnLoadFromFile" Width="100" Margin="0,0,20,0" Click="BtnLoadFromFile_Click">Load from File...</Button>
+            <Image Name="imgDynamic" Margin="10" Height="50" Width="50"/>
             <TextBox x:Name="txt2" AcceptsReturn="True" Background="#EDE3E0" Height="385" VerticalScrollBarVisibility="Auto"
        HorizontalScrollBarVisibility="Auto" Text="{Binding Description}"/>
         </StackPanel>

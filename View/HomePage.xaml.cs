@@ -31,6 +31,7 @@ namespace MyNotes
         {
             // if (signed in)
             this.NavigationService.Navigate(new Uri("View/LoginPage.xaml", UriKind.Relative));
+            App.currentUser = null;
         }
 
         void sortRuleChanged(object sender, RoutedEventArgs e)
