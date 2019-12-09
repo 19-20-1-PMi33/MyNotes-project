@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Microsoft.Win32;
 namespace MyNotes
 {
     /// <summary>
@@ -38,7 +38,15 @@ namespace MyNotes
         }
 
 
-
+        private void BtnLoadFromFile_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Uri fileUri = new Uri(openFileDialog.FileName);
+                imgDynamic.Source = new BitmapImage(fileUri);
+            }
+        }
 
         void btnBack_Click(object sender, RoutedEventArgs e)
         {

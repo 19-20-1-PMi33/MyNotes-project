@@ -30,6 +30,7 @@ namespace MyNotes
         void LogOutButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("View/LoginPage.xaml", UriKind.Relative));
+            App.currentUser = null;
         }
 
         /// <summary>
