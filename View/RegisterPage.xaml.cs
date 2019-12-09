@@ -43,7 +43,7 @@ namespace MyNotes
                
                 if (App.currentUser != null)
                 {
-                    this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
+                    this.NavigationService.Navigate(new Uri("View/LoadingPage.xaml", UriKind.Relative));
                 }
                 else
                 {
