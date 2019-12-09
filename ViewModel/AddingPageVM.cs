@@ -2,60 +2,84 @@
 using System.Runtime.CompilerServices;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
-//need to be reviewed
 namespace MyNotes
 {
-    public class AddingPageVM //: INotifyPropertyChanged
+    public class AddingPageVM : INotifyPropertyChanged
     {
-    //    AppDbContext db;
-    //    Note selectedNote;
+        AppDbContext db;
+        Note selectedNote;
+        int lastNoteId;
 
-    //    BindingList<Note> notes;
-    //    public BindingList<Note> Notes
-    //    {
-    //        get { return notes; }
-    //        set
-    //        {
-    //            notes = value;
-    //            OnPropertyChanged("Notes");
-    //        }
-    //    }
+        BindingList<Note> notes;
+        public BindingList<Note> Notes
+        {
+            get { return notes; }
+            set
+            {
+                notes = value;
+                OnPropertyChanged("Notes");
+            }
+        }
 
-    //    RelayCommand saveCommand;
-    //    public RelayCommand SaveCommand
-    //    {
-    //        get
-    //        {
-    //            return saveCommand ??
-    //                (saveCommand = new RelayCommand(selectedItem =>
-    //                {
-    //                    if (selectedItem == null) return;
-    //                    Note note = selectedItem as Note;
-    //                    db.Database.ExecuteSqlCommand($"UPDATE Notes WHERE NoteId={note.NoteId};" +
-    //                                                  $"UPDATE UserNotes WHERE NoteId={note.NoteId};");
-    //                    Notes.Save(note);
-    //                    db.SaveChanges();
-    //                },
-    //                (obj) => selectedNote != null));
-    //        }
-    //    }
-    //    public Note SelectedNote
-    //    {
-    //        get { return selectedNote; }
-    //        set
-    //        {
-    //            selectedNote = value;
-    //            OnPropertyChanged("SelectedNote");
-    //        }
-    //    }
+        RelayCommand saveCommand;
+        public RelayCommand SaveCommand
+        {
+            get
+            {
+                return saveCommand ??
+                    (saveCommand = new RelayCommand(obj =>
+                    {
+                        string[] saveString = obj as string[];
+                        //db.Database.ExecuteSqlCommand($"insert into Notes(Title,Description,TimeModified) values(" + saveString[0] + "," + saveString[1] + "," + DateTime.Now.ToString() + ")");
+                        db.Database.ExecuteSqlCommand($"insert into Notes(Title, Description, TimeModified) values('{saveString[0]}', '{saveString[1]}', '{DateTime.Now}')");
+                        db.SaveChanges();
+                        //db.Database.ExecuteSqlCommand($"insert into UserNotes(UserId,NoteId) values(" + App.currentUser.UserId + "," + ("Select MAX(NoteId) from Notes") + "))");
+                        getLastNoteId();
+                        db.Database.ExecuteSqlCommand($"insert into UserNotes values ('{App.currentUser.UserId}', '{lastNoteId}')");
+                        //Notes.Add(obj);
+                        db.SaveChanges();
+                    }));
 
-    //    public event PropertyChangedEventHandler PropertyChanged;
-    //    public void OnPropertyChanged([CallerMemberName]string prop = "")
-    //    {
-    //        if (PropertyChanged != null)
-    //            PropertyChanged(this, new PropertyChangedEventArgs(prop));
-    //    }
+            }
+        }
+        async void getLastNoteId()
+        {
+            List<int> query = await db.Database.SqlQuery<int>("select max(NoteId) from Notes").ToListAsync();
+            lastNoteId = query[0];
+        }
+        public Note SelectedNote
+        {
+            get { return selectedNote; }
+            set
+            {
+                selectedNote = value;
+                OnPropertyChanged("SelectedNote");
+            }
+        }
+        public AddingPageVM()
+        {
+            db = new AppDbContext();
+            //App.currentUser = new User { UserId = 1 }; //mock
+            //loadNotes();
+        }
+
+        async void loadNotes()
+        {
+            List<Note> query = await db.Database.SqlQuery<Note>("SELECT Notes.NoteId, Title, Description, TimeModified " +
+                                                     "FROM Notes JOIN UserNotes ON Notes.NoteId = UserNotes.NoteId " +
+                                                     $"WHERE UserNotes.UserId = {App.currentUser.UserId}")
+                                                     .ToListAsync();
+
+            Notes = new BindingList<Note>(query);
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
 
     }
 }

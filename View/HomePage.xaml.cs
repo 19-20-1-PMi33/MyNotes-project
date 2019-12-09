@@ -69,7 +69,10 @@ namespace MyNotes
         {
             this.NavigationService.Navigate(new Uri("View/AddingPage.xaml", UriKind.Relative));
         }
+        private void ViewNoteButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("View/ViewNotePage.xaml", UriKind.Relative));
+        }
 
-        
     }
 }
