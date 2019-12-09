@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,11 +65,21 @@ namespace MyNotes
                                 Notes = new BindingList<Note>(Notes.OrderBy(note => note.Title).ToList());
                                 break;
                             case "By time":
-                                Notes = new BindingList<Note>(Notes.OrderByDescending(note => note.TimeModified).ToList());
+                                Notes = new BindingList<Note>(Notes.OrderByDescending(note => dateTimeParser(note.TimeModified)).ToList());
                                 break;
                         }
                     }));
             }
+        }
+        
+        DateTime dateTimeParser(string dateString)
+        {
+            string[] splitDateString = dateString.Split();
+            string[] dayMonthYear = splitDateString[0].Split('.');
+            string[] hourMinSec = splitDateString[1].Split(':');
+
+            return new DateTime(int.Parse(dayMonthYear[2]), int.Parse(dayMonthYear[1]), int.Parse(dayMonthYear[0]),
+                                int.Parse(hourMinSec[0]), int.Parse(hourMinSec[1]), int.Parse(hourMinSec[2]));
         }
 
         /// <summary>
@@ -80,7 +91,7 @@ namespace MyNotes
             {
                 return searchCommand ??
                     (searchCommand = new RelayCommand(search =>
-                    {                        
+                    {
                         string searchString = search.ToString().ToLower();
 
                         if (string.IsNullOrWhiteSpace(searchString))
@@ -118,7 +129,7 @@ namespace MyNotes
             db = new AppDbContext();
             loadNotes();
         }
-        
+
         /// <summary>
         /// Loads user notes from database
         /// </summary>
