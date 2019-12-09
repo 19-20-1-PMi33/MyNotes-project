@@ -9,7 +9,6 @@
       Title="HomePage" WindowHeight="450" WindowWidth="800" 
       Background="#BEB2C8" ShowsNavigationUI="False">
 
-
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.35*" />
@@ -17,8 +16,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <StackPanel Background="#8D8D92">
-            <Button Content="Notes" Margin="20,50,20,7" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13"  />
-            <Button Content="Profile settings" Margin="20,7" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13"  Click="Button_Click"/>
+            <Button Content="Profile settings" Margin="20,50,20,7" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13"  Click="Button_Click"/>
             <Button Name="btnLogOut" Click="LogOutButton_Click" Content="Log out" Margin="20,7" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13"/>
         </StackPanel>
         <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" />

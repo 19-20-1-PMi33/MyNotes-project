@@ -29,10 +29,14 @@ namespace MyNotes
 
         void LogOutButton_Click(object sender, RoutedEventArgs e)
         {
-            // if (signed in)
             this.NavigationService.Navigate(new Uri("View/LoginPage.xaml", UriKind.Relative));
         }
 
+        /// <summary>
+        /// Handler of SelectionChanged event in sorting ComboBox 
+        /// </summary>
+        /// <param name="sender">Event sender (sorting ComboBox)</param>
+        /// <param name="e">RoutedEventArgs</param>
         void sortRuleChanged(object sender, RoutedEventArgs e)
         {
             HomePageVM vm = this.DataContext as HomePageVM;
@@ -47,6 +51,11 @@ namespace MyNotes
             }
         }
 
+        /// <summary>
+        /// Handler of TextChanged event in search TextBox
+        /// </summary>
+        /// <param name="sender">Event sender (search TextBox)</param>
+        /// <param name="e">RoutedEventArgs</param>
         void searchStringChanged(object sender, RoutedEventArgs e)
         {
             HomePageVM vm = this.DataContext as HomePageVM;
