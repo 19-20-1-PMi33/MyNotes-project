@@ -45,17 +45,6 @@ namespace MyNotes
             this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
         }
 
-       
-        //private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
-        //{
-        //    MessageBox.Show("Справка по приложению");
-        //}
-
-
-        //CommandBinding commandBinding = new CommandBinding();
-        //commandBinding.Command = ApplicationCommands.Save;
-        //    commandBinding.Executed += CommandBinding_Executed;
-        //    saveButton.CommandBindings.Add(commandBinding);
-
+     
     }
 }
