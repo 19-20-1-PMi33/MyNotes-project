@@ -31,14 +31,11 @@ namespace MyNotes
                 return saveCommand ??
                     (saveCommand = new RelayCommand(obj =>
                     {
-                        string[] saveString = obj as string[];
-                        //db.Database.ExecuteSqlCommand($"insert into Notes(Title,Description,TimeModified) values(" + saveString[0] + "," + saveString[1] + "," + DateTime.Now.ToString() + ")");
+                        string[] saveString = obj as string[];                      
                         db.Database.ExecuteSqlCommand($"insert into Notes(Title, Description, TimeModified) values('{saveString[0]}', '{saveString[1]}', '{DateTime.Now}')");
                         db.SaveChanges();
-                        //db.Database.ExecuteSqlCommand($"insert into UserNotes(UserId,NoteId) values(" + App.currentUser.UserId + "," + ("Select MAX(NoteId) from Notes") + "))");
                         getLastNoteId();
                         db.Database.ExecuteSqlCommand($"insert into UserNotes values ('{App.currentUser.UserId}', '{lastNoteId}')");
-                        //Notes.Add(obj);
                         db.SaveChanges();
                     }));
 
