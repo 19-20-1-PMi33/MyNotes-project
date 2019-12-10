@@ -81,7 +81,12 @@ namespace MyNotes
         }
         private void ViewNoteButton_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("View/ViewNotePage.xaml", UriKind.Relative));
+            HomePageVM home = this.DataContext as HomePageVM;
+            //ViewNotePage VM = new ViewNotePage(home.SelectedNote.Title);
+
+            this.NavigationService.Navigate(new ViewNotePage(home.SelectedNote));
+            //this.NavigationService.Navigate(new Uri(this.N), UriKind.Relative));
+            //this.NavigationService.Navigate(new Uri("View/ViewNotePage.xaml", UriKind.Relative));
         }
 
     }

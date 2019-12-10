@@ -28,6 +28,7 @@ namespace MyNotes
         }
         void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            HomePageVM vm1 = new HomePageVM();
             AddingPageVM vm = this.DataContext as AddingPageVM;
             string[] SaveString = new string[2];
             SaveString[0] = txt1.Text;

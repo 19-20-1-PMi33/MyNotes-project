@@ -10,9 +10,11 @@ namespace MyNotes
     {
         AppDbContext db;
         Note selectedNote;
+        RelayCommand viewCommand;
         RelayCommand removeCommand;
         RelayCommand sortCommand;
         RelayCommand searchCommand;
+        public int NoteId;
 
         BindingList<Note> notes;
         public BindingList<Note> Notes
@@ -28,6 +30,7 @@ namespace MyNotes
         /// <summary>
         /// Gets command, that removes selected note
         /// </summary>
+        /// 
         public RelayCommand RemoveCommand
         {
             get
@@ -41,6 +44,20 @@ namespace MyNotes
                                                       $"DELETE FROM UserNotes WHERE NoteId={note.NoteId};");
                         Notes.Remove(note);
                         db.SaveChanges();
+                    },
+                    (obj) => selectedNote != null));
+            }
+        }
+        public RelayCommand ViewCommand
+        {
+            get
+            {
+                return viewCommand ??
+                    (viewCommand = new RelayCommand(selectedItem =>
+                    {
+                        if (selectedItem == null) return;
+                        Note note = selectedItem as Note;
+                        
                     },
                     (obj) => selectedNote != null));
             }

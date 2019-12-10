@@ -14,6 +14,7 @@ namespace MyNotes
     public partial class App : Application
     {
         public static User currentUser;
+        
     }
 
 }
