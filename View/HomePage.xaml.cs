@@ -79,14 +79,13 @@ namespace MyNotes
         {
             this.NavigationService.Navigate(new Uri("View/AddingPage.xaml", UriKind.Relative));
         }
+        /// <summary>
+        /// Send SelectedNote object to View,and open ViewPage
+        /// </summary>
         private void ViewNoteButton_Click(object sender, RoutedEventArgs e)
         {
-            HomePageVM home = this.DataContext as HomePageVM;
-            //ViewNotePage VM = new ViewNotePage(home.SelectedNote.Title);
-
+            HomePageVM home = this.DataContext as HomePageVM;           
             this.NavigationService.Navigate(new ViewNotePage(home.SelectedNote));
-            //this.NavigationService.Navigate(new Uri(this.N), UriKind.Relative));
-            //this.NavigationService.Navigate(new Uri("View/ViewNotePage.xaml", UriKind.Relative));
         }
 
     }

@@ -48,6 +48,9 @@ namespace MyNotes
                     (obj) => selectedNote != null));
             }
         }
+        /// <summary>
+        /// Gets command, that create Note object of selected note
+        /// </summary>
         public RelayCommand ViewCommand
         {
             get
