@@ -29,6 +29,11 @@ namespace MyNotes
             currnote = SelectedNote;
             this.DataContext = new ViewNotePageVM();
         }
+         /// <summary>
+         /// Save botton click event,that update information of the chosen note in DataBase
+         /// </summary>
+         /// <param name="sender">Event sender</param>
+         /// <param name="e">RoutedEventArgs</param>
         void btnSave_Click(object sender, RoutedEventArgs e)
         {
             HomePageVM a = new HomePageVM();
@@ -37,10 +42,8 @@ namespace MyNotes
             SaveString[0] = txt1.Text;
             SaveString[1] = txt2.Text;
             SaveString[2] = currnote.NoteId;
-            MessageBox.Show("Before save");
             if ((vm != null) && (vm.SaveCommand.CanExecute(null)))
                 vm.SaveCommand.Execute(SaveString);
-            MessageBox.Show("Afetr save");
             this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
         }
 
@@ -48,12 +51,5 @@ namespace MyNotes
         {
             this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
         }
-
-
-        //private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        //{
-        //    TextBox textBox = (TextBox)sender;
-        //    MessageBox.Show(textBox.Text);
-        //}
     }
 }

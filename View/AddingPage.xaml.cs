@@ -26,6 +26,11 @@ namespace MyNotes
             InitializeComponent();
             this.DataContext = new AddingPageVM();
         }
+        /// <summary>
+        /// Save botton click event,that adds new note to DataBase
+        /// </summary>
+        /// <param name="sender">Event sender</param>
+        /// <param name="e">RoutedEventArgs</param>
         void btnSave_Click(object sender, RoutedEventArgs e)
         {
             HomePageVM vm1 = new HomePageVM();

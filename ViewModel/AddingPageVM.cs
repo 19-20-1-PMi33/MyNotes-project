@@ -10,6 +10,7 @@ namespace MyNotes
     {
         AppDbContext db;
         Note selectedNote;
+        RelayCommand saveCommand;
         int lastNoteId;
 
         BindingList<Note> notes;
@@ -22,8 +23,9 @@ namespace MyNotes
                 OnPropertyChanged("Notes");
             }
         }
-
-        RelayCommand saveCommand;
+        /// <summary>
+        /// Gets command, that adds new note to database
+        /// </summary> 
         public RelayCommand SaveCommand
         {
             get
@@ -41,6 +43,9 @@ namespace MyNotes
 
             }
         }
+        /// <summary>
+        /// Select note with max ID from Notes
+        /// </summary>
         async void getLastNoteId()
         {
             List<int> query = await db.Database.SqlQuery<int>("select max(NoteId) from Notes").ToListAsync();
@@ -62,15 +67,6 @@ namespace MyNotes
             //loadNotes();
         }
 
-        async void loadNotes()
-        {
-            List<Note> query = await db.Database.SqlQuery<Note>("SELECT Notes.NoteId, Title, Description, TimeModified " +
-                                                     "FROM Notes JOIN UserNotes ON Notes.NoteId = UserNotes.NoteId " +
-                                                     $"WHERE UserNotes.UserId = {App.currentUser.UserId}")
-                                                     .ToListAsync();
-
-            Notes = new BindingList<Note>(query);
-        }
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
