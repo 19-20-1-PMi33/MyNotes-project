@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HomePage" WindowHeight="450" WindowWidth="800" 
-      Background="#BEB2C8" ShowsNavigationUI="False">
+      Background="#6D9DC5" ShowsNavigationUI="False">
 
     <Grid >
         <Grid.ColumnDefinitions>
@@ -15,9 +15,9 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <StackPanel Background="#8D8D92">
-            <Button Content="Profile settings" Margin="20,50,20,7" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13"  Click="Button_Click"/>
-            <Button Name="btnLogOut" Click="LogOutButton_Click" Content="Log out" Margin="20,7" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13"/>
+        <StackPanel Background="#4E8AAD">
+            <Button Content="Profile settings" Margin="20,50,20,7" Background="#1B4965" Foreground="#BEE9E8" FontSize="13"  Click="Button_Click"/>
+            <Button Name="btnLogOut" Click="LogOutButton_Click" Content="Log out" Margin="20,7" Background="#1B4965" Foreground="#BEE9E8" FontSize="13"/>
         </StackPanel>
         <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
         <Grid Grid.Column="2">
@@ -25,22 +25,22 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Canvas Grid.Row="0" Height="50"  Background="#8D8D92">
-                <Button Canvas.Left="10" Content="Add note" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13" Margin="10,19" Padding="10,2" Click="addButton_Click"/>
-                <ComboBox x:Name="sortBox" SelectionChanged="sortRuleChanged" MinWidth="95" Canvas.Left="100" Margin="10,19" Padding="10,3" Foreground="#36413E" FontWeight="DemiBold" FontSize="13" Height="23" >
+            <Canvas Grid.Row="0" Height="50"  Background="#4E8AAD">
+                <Button Canvas.Left="10" Content="Add note" Background="#1B4965" Foreground="#BEE9E8" FontSize="13" Margin="10,19" Padding="10,2" Click="addButton_Click" />
+                <ComboBox x:Name="sortBox" SelectionChanged="sortRuleChanged" MinWidth="95" Canvas.Left="100" Margin="10,19" Padding="10,3" Background="#CAE9FF" Foreground="#1B4965" FontWeight="DemiBold" FontSize="13" Height="23" >
                     <ComboBoxItem IsSelected="True">Sort notes</ComboBoxItem>
                     <ComboBoxItem>By title</ComboBoxItem>
                     <ComboBoxItem>By time</ComboBoxItem>
                 </ComboBox>
                 <StackPanel Canvas.Left="215" Canvas.Top="1">
                     <TextBlock Text="Search" Foreground="#36413E" FontWeight="DemiBold" Margin="6,2,0,0" Height="14" Width="154"/>
-                    <TextBox TextChanged="searchStringChanged"  Background="#D7D6D6" Foreground="#36413E" FontWeight="DemiBold" FontSize="13" Margin="5,2" Padding="5,2" MinWidth="150" MaxWidth="150" Height="23" Width="151"/>
+                    <TextBox TextChanged="searchStringChanged"  Background="#CAE9FF" Foreground="#1B4965" FontWeight="DemiBold" FontSize="13" Margin="5,2" Padding="5,2" MinWidth="150" MaxWidth="150" Height="23" Width="151"/>
                 </StackPanel>
-                <Button Canvas.Left="400" Click="ViewNoteButton_Click" Content="View" Background="#5D5E60" Foreground="#D7D6D6" Padding="10,2" Canvas.Top="19" RenderTransformOrigin="-0.286,0.367" Width="76" Height="23" Command="{Binding ViewCommand}" CommandParameter="{Binding SelectedNote}" />
-                <Button Canvas.Right="20" Content="Remove" Background="#5D5E60" Foreground="#D7D6D6" FontSize="13" Margin="10,19" Padding="10,2"
+                <Button Canvas.Left="400" Click="ViewNoteButton_Click" Content="View" Background="#1B4965" Foreground="#BEE9E8" Padding="10,2" Canvas.Top="19" RenderTransformOrigin="-0.286,0.367" Width="76" Height="23" Command="{Binding ViewCommand}" CommandParameter="{Binding SelectedNote}" />
+                <Button Canvas.Right="20" Content="Remove" Background="#1B4965" Foreground="#BEE9E8" FontSize="13" Margin="10,19" Padding="10,2"
                         Command="{Binding RemoveCommand}" CommandParameter="{Binding SelectedNote}"/>
             </Canvas>
-            <ListBox Grid.Row="1" Background="#BEB2C8" ItemsSource="{Binding Notes}" SelectedItem="{Binding SelectedNote}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox Grid.Row="1" Background="#62B6CB" ItemsSource="{Binding Notes}" SelectedItem="{Binding SelectedNote}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="10">

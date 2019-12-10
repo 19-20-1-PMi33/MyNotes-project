@@ -53,6 +53,7 @@ namespace MyNotes
                     MessageBox.Show("Account doesn`t exist!");
                 }
             }
+
             // if (signed in)
         }
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
@@ -63,6 +64,7 @@ namespace MyNotes
             }
         }
 
+        
     }
 
 }

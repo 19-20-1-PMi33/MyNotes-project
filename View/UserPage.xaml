@@ -7,19 +7,19 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="UserPage" WindowHeight="450" WindowWidth="800" 
-      Background="#BEB2C8" ShowsNavigationUI="False">
+      Background="#5FA8D3" ShowsNavigationUI="False">
 
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="300">
 
-            <Label Content="Change Username"  Foreground="#5D5E60" FontSize="17"/>
-            <TextBox x:Name="txt1" Background="#D7D6D6" FontWeight="DemiBold" Foreground="#36413E" FontSize="18"  />
-            <Label Content="Change Email"  Foreground="#5D5E60" FontSize="17"/>
-            <TextBox x:Name="txt2" Background="#D7D6D6" FontWeight="DemiBold" Foreground="#36413E" FontSize="18" />
-            <Label Content="Change Password" Foreground="#5D5E60" FontSize="17"/>
-            <PasswordBox x:Name="pass3" Background="#D7D6D6" FontWeight="DemiBold" Foreground="#36413E" FontSize="18" />
-            <Button Content="Update" Margin="15" MaxWidth="100" Background="#5D5E60" Foreground="#D7D6D6" FontSize="18"  Width="100" Click="Update_Click" />
-            <Button Content="Back" Margin="15" MaxWidth="100" Background="#5D5E60" Foreground="#D7D6D6" FontSize="18"  Width="100" Click="Button_Click" />
+            <Label Content="Change Username"  Foreground="#1B4965" FontSize="17"/>
+            <TextBox x:Name="txt1" Background="#BEE9E8" FontWeight="DemiBold" Foreground="#1B4965" FontSize="18"  />
+            <Label Content="Change Email"  Foreground="#1B4965" FontSize="17"/>
+            <TextBox x:Name="txt2" Background="#BEE9E8" FontWeight="DemiBold" Foreground="#1B4965" FontSize="18" />
+            <Label Content="Change Password" Foreground="#1B4965" FontSize="17"/>
+            <PasswordBox x:Name="pass3" Background="#BEE9E8" FontWeight="DemiBold" Foreground="#1B4965" FontSize="18" />
+            <Button Content="Update" Margin="15" MaxWidth="100" Background="#1B4965" Foreground="#BEE9E8" FontSize="18"  Width="100" Click="Update_Click" />
+            <Button Content="Back" Margin="15" MaxWidth="100" Background="#1B4965" Foreground="#BEE9E8" FontSize="18"  Width="100" Click="Button_Click" />
             
         </StackPanel>
     </Grid>
