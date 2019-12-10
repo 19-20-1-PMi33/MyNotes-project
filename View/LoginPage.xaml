@@ -26,7 +26,7 @@
             <TextBox x:Name="txt_box1" Background="#BEE9E8" FontWeight="DemiBold" Foreground="#1B4965" FontSize="18" Text="{Binding Email}" />
             <TextBlock Text="Password"  Foreground="#1B4965" FontSize="17" />
             <PasswordBox x:Name="pass" Background="#BEE9E8" FontWeight="DemiBold" Foreground="#1B4965" FontSize="18" />
-            <Button Name="btnSignIn" Click="SignInButton_Click" ClickMode="Hover" Content="Sign In" Margin="15" MaxWidth="100" Background="#1B4965" Foreground="#BEE9E8" FontSize="18">
+            <Button Name="btnSignIn" Click="SignInButton_Click"  Content="Sign In" Margin="15" MaxWidth="100" Background="#1B4965" Foreground="#BEE9E8" FontSize="18">
                 
             </Button>
             <StackPanel Orientation="Horizontal" Margin="10" Width="185">
