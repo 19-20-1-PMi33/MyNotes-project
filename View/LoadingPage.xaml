@@ -1,0 +1,22 @@
+﻿<Page x:Class="MyNotes.LoadingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MyNotes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" Background="#5FA8D3"
+      Title="LoadingPage">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="300">
+            <DockPanel>
+                <TextBlock HorizontalAlignment="Left" Foreground="#1B4965" Margin="0" TextWrapping="Wrap" FontSize="100" Text="MyNotes" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold" />
+                <Image Height="100" Margin="10" Source="..\Resources\writing.png"/>
+            </DockPanel>
+            <ProgressBar Width="300" Background="#CAE9FF" Foreground="#1B4965" Height="35" Minimum="0" Maximum="100" Value="{Binding WorkerState}"></ProgressBar>
+        </StackPanel>
+
+
+    </Grid>
+</Page>

@@ -6,9 +6,117 @@
       xmlns:local="clr-namespace:MyNotes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="HomePage" WindowHeight="450" WindowWidth="800" ShowsNavigationUI="False">
+      Title="HomePage" WindowHeight="450" WindowWidth="800" 
+      Background="#6D9DC5" ShowsNavigationUI="False">
 
-    <Grid>
-        
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Background="#4E8AAD">
+            <Button  Margin="20,50,20,7" Background="#1B4965" Foreground="#BEE9E8" FontSize="13"  Click="Button_Click" Height="32">
+                <StackPanel Height="16" >
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock  Text="Profile settings" Grid.Column="0"  Foreground="#BEE9E8" Width="86" HorizontalAlignment="Left" Margin="-49,0,0,-3" Grid.RowSpan="2"/>
+                        <Image Height="15" Width="19" Source="..\Resources\user.png" HorizontalAlignment="Right" Margin="0,1,-49,0" Grid.RowSpan="2"/>
+                    </Grid>
+                </StackPanel>
+            </Button>
+            <Button Name="btnLogOut" Click="LogOutButton_Click"  Margin="20,7" Background="#1B4965" Foreground="#BEE9E8" FontSize="13" Height="32">
+                <StackPanel Height="16" >
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock  Text="Log out" Grid.Column="0"  Foreground="#BEE9E8" Width="82" HorizontalAlignment="Left" Margin="-52,0,0,-4" Grid.RowSpan="2"/>
+                        <Image Height="15" Width="25" Grid.Column="1" Source="..\Resources\logout.png" HorizontalAlignment="Right" Margin="0,1,-55,0" Grid.RowSpan="2"/>
+                    </Grid>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="31*"/>
+                <RowDefinition Height="64*"/>
+            </Grid.RowDefinitions>
+            <Canvas Grid.Row="0"  Background="#4E8AAD">
+                <Button Canvas.Left="10"  Background="#1B4965" Foreground="#BEE9E8" FontSize="13" Padding="10,2" Click="addButton_Click" Canvas.Top="28" Width="97" Height="32">
+                    <StackPanel Height="16" >
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock  Text="Add note" Grid.Column="0"  Foreground="#BEE9E8" Height="15" Width="57" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="-22,0,-5,0"></TextBlock>
+                            <Image Height="14" Width="16" Grid.Column="1" Source="..\Resources\add.png" HorizontalAlignment="Right" Margin="0,1,-21,0"/>
+                        </Grid>
+                    </StackPanel>
+                </Button>
+                <ComboBox x:Name="sortBox" SelectionChanged="sortRuleChanged" MinWidth="95" Canvas.Left="122" Padding="10,3" Background="#CAE9FF" Foreground="#1B4965" FontWeight="DemiBold" FontSize="15" Height="32" Canvas.Top="28" Width="114" >
+                    <ComboBoxItem IsSelected="True">Sort notes</ComboBoxItem>
+                    <ComboBoxItem>By title</ComboBoxItem>
+                    <ComboBoxItem>By time</ComboBoxItem>
+                </ComboBox>
+                <StackPanel Canvas.Left="236" Canvas.Top="10" Height="50" Width="170">
+                    <StackPanel  >
+                        <Grid Height="16" Margin="27,0,0,0" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Search" FontSize="12.5" Foreground="#36413E" FontWeight="DemiBold" Margin="-16,0,0,3"/>
+                            <Image Height="12" Source="..\Resources\search.png" Margin="0,0,0,0" />
+                        </Grid>
+                    </StackPanel>
+
+                    <TextBox TextChanged="searchStringChanged"  Background="#CAE9FF" Foreground="#1B4965" FontWeight="DemiBold" FontSize="13" Margin="0,2" Padding="5,2" MinWidth="150" MaxWidth="150" Height="32"/>
+                </StackPanel>
+                <Button Canvas.Left="411" Click="ViewNoteButton_Click"  Background="#1B4965" Foreground="#BEE9E8" Padding="10,2" Canvas.Top="28" RenderTransformOrigin="-0.286,0.367" Width="75" Height="32" IsEnabled="{Binding NoteIsSelected}">
+                    <StackPanel Height="16" >
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock  Text="View" Grid.Column="0"  Foreground="#BEE9E8" Height="15" Width="38" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="-8,0,0,0"></TextBlock>
+                            <Image Height="15" Width="25" Grid.Column="1" Source="..\Resources\view.png" HorizontalAlignment="Right" Margin="0,0,-10,0"/>
+                        </Grid>
+                    </StackPanel>
+                </Button>
+                <Button Canvas.Right="20" Background="#1B4965" Foreground="#BEE9E8" FontSize="13" Padding="10,2"
+                        Command="{Binding RemoveCommand}" CommandParameter="{Binding SelectedNote}" Canvas.Left="491" Canvas.Top="28" Width="98" Height="32">
+                    <StackPanel Height="16" >
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock  Text="Remove" Grid.Column="0"  Foreground="#BEE9E8" Height="15" Width="61" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="-31,0,0,0"></TextBlock>
+                            <Image Height="15" Width="25" Grid.Column="1" Source="..\Resources\delete-button.png" HorizontalAlignment="Right" Margin="0,0,-19,0"/>
+                        </Grid>
+                    </StackPanel>
+                </Button>
+            </Canvas>
+            <ListBox Grid.Row="1" Background="#62B6CB" ItemsSource="{Binding Notes}" SelectedItem="{Binding SelectedNote}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,0" Grid.RowSpan="2">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="10">
+                            <TextBlock FontWeight="Bold"  Foreground="#1B4965" FontSize="17" Text="{Binding Path=Title}"/>
+                            <TextBlock  Foreground="#1B4965" FontWeight="DemiBold"  FontSize="16" Text="{Binding Path=Description}" />
+                            <TextBlock FontSize="9" Text="{Binding Path=TimeModified}" Margin="0,20,0,0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
     </Grid>
 </Page>

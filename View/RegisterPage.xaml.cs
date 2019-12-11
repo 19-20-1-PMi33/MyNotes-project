@@ -6,19 +6,17 @@ using System.Text.RegularExpressions;
 namespace MyNotes
 {
     /// <summary>
-    /// Interaction logic for LoginPage.xaml
+    /// Interaction logic for RegisterPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class RegisterPage : Page
     {
-        public LoginPage()
+        public RegisterPage()
         {
             InitializeComponent();
-            this.DataContext = new LoginVM();
-
+            this.DataContext = new RegisterVM();
         }
-
         /// <summary>
-        /// Checking validation of email
+        /// Checking email validation
         /// </summary>
         public static class ValidatorExtensions
         {
@@ -28,19 +26,18 @@ namespace MyNotes
                 return regex.IsMatch(s);
             }
         }
-
         /// <summary>
-        /// Logging functionality 
+        /// Realization of registering process
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void SignInButton_Click(object sender, RoutedEventArgs e)
+        void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
-            LoginVM login = new LoginVM();
-            bool result = ValidatorExtensions.IsValidEmailAddress(txt_box1.Text);
-            if (txt_box1.Text == null || pass.Password.ToString() == null ||
-                 string.IsNullOrWhiteSpace(txt_box1.Text) ||
-                string.IsNullOrWhiteSpace(pass.Password.ToString()))
+            RegisterVM register = new RegisterVM();
+            bool result = ValidatorExtensions.IsValidEmailAddress(txt2.Text);
+            if (txt1.Text == null || txt2.Text == null ||
+                pass2.Password.ToString() == null || string.IsNullOrWhiteSpace(txt1.Text) ||
+                string.IsNullOrWhiteSpace(txt2.Text) || string.IsNullOrWhiteSpace(pass2.Password.ToString()))
             {
                 MessageBox.Show("All rows must be fill in!");
             }
@@ -49,14 +46,14 @@ namespace MyNotes
                 if (result == false) { MessageBox.Show("Incorrect Email validation!"); }
                 else
                 {
-                    login.Action1(txt_box1.Text, pass.Password.ToString());
+                    register.Action1(txt1.Text, txt2.Text, pass2.Password.ToString());
                     if (App.currentUser != null)
                     {
                         this.NavigationService.Navigate(new Uri("View/LoadingPage.xaml", UriKind.Relative));
                     }
                     else
                     {
-                        MessageBox.Show("Account doesn`t exist!");
+                        MessageBox.Show("Account already exists!");
                     }
                 }
             }
