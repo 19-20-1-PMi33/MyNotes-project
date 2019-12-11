@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
+
 namespace MyNotes.Binding
 {
-    public class LoginButton:ICommand
+    public class LoginButton : ICommand
     {
-        //delegate command to register method to be executed
         private readonly Action handler;
         private bool isEnabled;
 
@@ -19,11 +15,9 @@ namespace MyNotes.Binding
         /// <param name="handler"></param>
         public LoginButton(Action handler)
         {
-            // Assign the method name to the handler
             this.handler = handler;
         }
 
-        //Property that helps to
         public bool IsEnabled
         {
             get { return isEnabled; }
@@ -52,10 +46,8 @@ namespace MyNotes.Binding
 
         public event EventHandler CanExecuteChanged;
 
-        // Helps to execute the respective method using the handler
         public void Execute(object parameter)
         {
-            //calls the respective method that has been registered with the handler
             handler();
         }
     }

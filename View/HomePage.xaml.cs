@@ -1,18 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Xaml;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MyNotes
 {
@@ -26,6 +14,7 @@ namespace MyNotes
             InitializeComponent();
             this.DataContext = new HomePageVM();
         }
+
         /// <summary>
         /// LogOut functionality
         /// </summary>
@@ -83,14 +72,14 @@ namespace MyNotes
         {
             this.NavigationService.Navigate(new Uri("View/AddingPage.xaml", UriKind.Relative));
         }
+
         /// <summary>
         /// Send SelectedNote object to View,and open ViewPage
         /// </summary>
         private void ViewNoteButton_Click(object sender, RoutedEventArgs e)
         {
-            HomePageVM home = this.DataContext as HomePageVM;           
+            HomePageVM home = this.DataContext as HomePageVM;
             this.NavigationService.Navigate(new ViewNotePage(home.SelectedNote));
         }
-
     }
 }

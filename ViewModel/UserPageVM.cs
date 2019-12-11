@@ -1,13 +1,10 @@
 ﻿using System.Data.SQLite;
-using System.ComponentModel;
 using System;
-using System.Runtime.CompilerServices;
-using MyNotes.Binding;
+
 namespace MyNotes
 {
     class UserPageVM
     {
-
         string dbConnectionString = @"Data Source=..\..\Data\mynotesDB.db";
         public bool exist { get; set; }
         /// <summary>
@@ -15,15 +12,14 @@ namespace MyNotes
         /// </summary>
         /// <param name="UserName"></param>
         public void Action1(string UserName)
-        {            
+        {
             SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
-            //var dbConnection = db.Database.Connection as SQLiteConnection;
             try
             {
                 sqliteCon.Open();
                 string Query = "update Users set Username='" + UserName + "' where UserId='" + App.currentUser.UserId + "'";
                 SQLiteCommand createCommand = new SQLiteCommand(Query, sqliteCon);
-                createCommand.ExecuteNonQuery();                                        
+                createCommand.ExecuteNonQuery();
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
@@ -31,10 +27,9 @@ namespace MyNotes
         /// Updating User-password in database
         /// </summary>
         /// <param name="Password"></param>
-        public void Action2( string Password)
+        public void Action2(string Password)
         {
             SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
-            //var dbConnection = db.Database.Connection as SQLiteConnection;
             try
             {
                 sqliteCon.Open();
@@ -51,7 +46,6 @@ namespace MyNotes
         public void Action3(string Email)
         {
             SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
-            //var dbConnection = db.Database.Connection as SQLiteConnection;
             try
             {
                 sqliteCon.Open();
@@ -76,7 +70,6 @@ namespace MyNotes
                 {
                     exist = false;
                 }
-
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
