@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Text.RegularExpressions;
 namespace MyNotes
 {
     /// <summary>
@@ -26,11 +26,18 @@ namespace MyNotes
             InitializeComponent();
             this.DataContext = new RegisterVM();
         }
-
+        public static class ValidatorExtensions
+        {
+            public static bool IsValidEmailAddress(string s)
+            {
+                Regex regex = new Regex(@"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$");
+                return regex.IsMatch(s);
+            }
+        }
         void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
             RegisterVM register = new RegisterVM();
-            register.Action1(txt1.Text, txt2.Text, pass2.Password.ToString());
+            bool result = ValidatorExtensions.IsValidEmailAddress(txt2.Text);
             // if (signed up)
             if (txt1.Text == null|| txt2.Text == null||
                 pass2.Password.ToString() == null|| string.IsNullOrWhiteSpace(txt1.Text)||
@@ -40,14 +47,18 @@ namespace MyNotes
             }
             else
             {
-               
-                if (App.currentUser != null)
-                {
-                    this.NavigationService.Navigate(new Uri("View/LoadingPage.xaml", UriKind.Relative));
-                }
+                if (result == false) { MessageBox.Show("Incorrect Email validation!"); }
                 else
                 {
-                    MessageBox.Show("Account already exists!");
+                    register.Action1(txt1.Text, txt2.Text, pass2.Password.ToString());
+                    if (App.currentUser != null)
+                    {
+                        this.NavigationService.Navigate(new Uri("View/LoadingPage.xaml", UriKind.Relative));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Account already exists!");
+                    }
                 }
             }
         }
