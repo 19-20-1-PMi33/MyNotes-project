@@ -10,11 +10,10 @@ namespace MyNotes
     {
         AppDbContext db;
         Note selectedNote;
-        RelayCommand viewCommand;
+        bool noteIsSelected;
         RelayCommand removeCommand;
         RelayCommand sortCommand;
         RelayCommand searchCommand;
-        public int NoteId;
 
         BindingList<Note> notes;
         public BindingList<Note> Notes
@@ -48,23 +47,6 @@ namespace MyNotes
                     (obj) => selectedNote != null));
             }
         }
-        /// <summary>
-        /// Gets command, that create Note object of selected note
-        /// </summary>
-        public RelayCommand ViewCommand
-        {
-            get
-            {
-                return viewCommand ??
-                    (viewCommand = new RelayCommand(selectedItem =>
-                    {
-                        if (selectedItem == null) return;
-                        Note note = selectedItem as Note;
-                        
-                    },
-                    (obj) => selectedNote != null));
-            }
-        }
 
         /// <summary>
         /// Gets command, that sorts notes on home page
@@ -91,7 +73,7 @@ namespace MyNotes
                     }));
             }
         }
-        
+
         DateTime dateTimeParser(string dateString)
         {
             string[] splitDateString = dateString.Split();
@@ -140,7 +122,18 @@ namespace MyNotes
             set
             {
                 selectedNote = value;
+                NoteIsSelected = selectedNote != null ? true : false;
                 OnPropertyChanged("SelectedNote");
+            }
+        }
+
+        public bool NoteIsSelected
+        {
+            get { return noteIsSelected; }
+            set
+            {
+                noteIsSelected = value;
+                OnPropertyChanged("NoteIsSelected");
             }
         }
 

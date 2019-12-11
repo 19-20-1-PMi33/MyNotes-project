@@ -80,7 +80,7 @@
 
                     <TextBox TextChanged="searchStringChanged"  Background="#CAE9FF" Foreground="#1B4965" FontWeight="DemiBold" FontSize="13" Margin="0,2" Padding="5,2" MinWidth="150" MaxWidth="150" Height="32"/>
                 </StackPanel>
-                <Button Canvas.Left="411" Click="ViewNoteButton_Click"  Background="#1B4965" Foreground="#BEE9E8" Padding="10,2" Canvas.Top="28" RenderTransformOrigin="-0.286,0.367" Width="75" Height="32" Command="{Binding ViewCommand}" CommandParameter="{Binding SelectedNote}" >
+                <Button Canvas.Left="411" Click="ViewNoteButton_Click"  Background="#1B4965" Foreground="#BEE9E8" Padding="10,2" Canvas.Top="28" RenderTransformOrigin="-0.286,0.367" Width="75" Height="32" IsEnabled="{Binding NoteIsSelected}">
                     <StackPanel Height="16" >
                         <Grid >
                             <Grid.ColumnDefinitions>
