@@ -81,6 +81,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Binding\LoginButton.cs" />
+    <Compile Include="Binding\RegisterButton.cs" />
+    <Compile Include="Data\AppDbContext.cs" />
     <Compile Include="Model\Entities\Note.cs" />
     <Compile Include="Model\Entities\User.cs" />
     <Compile Include="ViewModel\AddingPageVM.cs" />
