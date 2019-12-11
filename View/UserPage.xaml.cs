@@ -1,25 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Xaml;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MyNotes
 {
     /// <summary>
     /// Interaction logic for UserPage.xaml
     /// </summary>
-    public partial class UserPage :Page
+    public partial class UserPage : Page
     {
         public UserPage()
         {
@@ -37,11 +25,11 @@ namespace MyNotes
             if (txt1.Text == null && txt2.Text == null &&
                    pass3.Password.ToString() == null || string.IsNullOrWhiteSpace(txt1.Text) &&
                    string.IsNullOrWhiteSpace(txt2.Text) && string.IsNullOrWhiteSpace(pass3.Password.ToString()))
-               {
-                   MessageBox.Show("Any of row must be fill in!");
-               }
-               else
-               {
+            {
+                MessageBox.Show("Any of row must be fill in!");
+            }
+            else
+            {
                 if (txt1.Text != null && !string.IsNullOrWhiteSpace(txt1.Text))
                 {
                     user.Action1(txt1.Text);

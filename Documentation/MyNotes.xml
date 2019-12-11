@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyNotes</name>
+    </assembly>
+    <members>
+        <member name="M:MyNotes.Binding.LoginButton.#ctor(System.Action)">
+            <summary>
+            Bind method to be executed to the handler
+            So that it can direct on event execution
+            </summary>
+            <param name="handler"></param>
+        </member>
+        <member name="M:MyNotes.Binding.LoginButton.CanExecute(System.Object)">
+            <summary>
+            method to specify if the event will execute
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MyNotes.AddingPageVM.SaveCommand">
+            <summary>
+            Gets command, that adds new note to database
+            </summary> 
+        </member>
+        <member name="M:MyNotes.AddingPageVM.getLastNoteId">
+            <summary>
+            Select note with max ID from Notes
+            </summary>
+        </member>
+        <member name="P:MyNotes.HomePageVM.RemoveCommand">
+            <summary>
+            Gets command, that removes selected note
+            </summary>
+            
+        </member>
+        <member name="P:MyNotes.HomePageVM.SortCommand">
+            <summary>
+            Gets command, that sorts notes on home page
+            </summary>
+        </member>
+        <member name="P:MyNotes.HomePageVM.SearchCommand">
+            <summary>
+            Gets command, that performs searching note on home page
+            </summary>
+        </member>
+        <member name="M:MyNotes.HomePageVM.loadNotes">
+            <summary>
+            Loads user notes from database
+            </summary>
+        </member>
+        <member name="M:MyNotes.LoginVM.Action1(System.String,System.String)">
+            <summary>
+            Realization of logging process,connection with data base
+            </summary>
+            <param name="Email"></param>
+            <param name="Password"></param>
+        </member>
+        <member name="M:MyNotes.RegisterVM.Action1(System.String,System.String,System.String)">
+            <summary>
+            Realization of registering functionality and importing user-information to data base
+            </summary>
+            <param name="UserName"></param>
+            <param name="Email"></param>
+            <param name="Password"></param>
+        </member>
+        <member name="M:MyNotes.UserPageVM.Action1(System.String)">
+            <summary>
+            Updating User-name in database
+            </summary>
+            <param name="UserName"></param>
+        </member>
+        <member name="M:MyNotes.UserPageVM.Action2(System.String)">
+            <summary>
+            Updating User-password in database
+            </summary>
+            <param name="Password"></param>
+        </member>
+        <member name="M:MyNotes.UserPageVM.Action3(System.String)">
+            <summary>
+            Updating User-email in data base
+            </summary>
+            <param name="Email"></param>
+        </member>
+        <member name="P:MyNotes.ViewNotePageVM.SaveCommand">
+            <summary>
+            Gets command, that change information of the chosen note
+            </summary>
+        </member>
+        <member name="T:MyNotes.AddingPage">
+            <summary>
+            Interaction logic for AddingPage.xaml
+            </summary>
+            <summary>
+            AddingPage
+            </summary>
+        </member>
+        <member name="M:MyNotes.AddingPage.btnSave_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Save button click event,that adds new note to DataBase
+            </summary>
+            <param name="sender">Event sender</param>
+            <param name="e">RoutedEventArgs</param>
+        </member>
+        <member name="M:MyNotes.AddingPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MyNotes.HomePage">
+            <summary>
+            Interaction logic for HomePage.xaml
+            </summary>
+            <summary>
+            HomePage
+            </summary>
+        </member>
+        <member name="M:MyNotes.HomePage.LogOutButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            LogOut functionality
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MyNotes.HomePage.sortRuleChanged(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handler of SelectionChanged event in sorting ComboBox 
+            </summary>
+            <param name="sender">Event sender (sorting ComboBox)</param>
+            <param name="e">RoutedEventArgs</param>
+        </member>
+        <member name="M:MyNotes.HomePage.searchStringChanged(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handler of TextChanged event in search TextBox
+            </summary>
+            <param name="sender">Event sender (search TextBox)</param>
+            <param name="e">RoutedEventArgs</param>
+        </member>
+        <member name="M:MyNotes.HomePage.ViewNoteButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Send SelectedNote object to View,and open ViewPage
+            </summary>
+        </member>
+        <member name="M:MyNotes.HomePage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MyNotes.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:MyNotes.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:MyNotes.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:MyNotes.LoadingPage">
+            <summary>
+            Interaction logic for LoadingPage.xaml
+            </summary>
+            <summary>
+            LoadingPage
+            </summary>
+        </member>
+        <member name="M:MyNotes.LoadingPage.#ctor">
+            <summary>
+            Implements animation and functionality of loading progress bar
+            </summary>
+        </member>
+        <member name="M:MyNotes.LoadingPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MyNotes.LoginPage">
+            <summary>
+            Interaction logic for LoginPage.xaml
+            </summary>
+            <summary>
+            LoginPage
+            </summary>
+        </member>
+        <member name="T:MyNotes.LoginPage.ValidatorExtensions">
+            <summary>
+            Checking validation of email
+            </summary>
+        </member>
+        <member name="M:MyNotes.LoginPage.SignInButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Logging functionality 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MyNotes.LoginPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MyNotes.RegisterPage">
+            <summary>
+            Interaction logic for RegisterPage.xaml
+            </summary>
+            <summary>
+            RegisterPage
+            </summary>
+        </member>
+        <member name="T:MyNotes.RegisterPage.ValidatorExtensions">
+            <summary>
+            Checking email validation
+            </summary>
+        </member>
+        <member name="M:MyNotes.RegisterPage.SignUpButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Realization of registering process
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MyNotes.RegisterPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MyNotes.UserPage">
+            <summary>
+            Interaction logic for UserPage.xaml
+            </summary>
+            <summary>
+            UserPage
+            </summary>
+        </member>
+        <member name="M:MyNotes.UserPage.Update_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Updating user data
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MyNotes.UserPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MyNotes.ViewNotePage">
+            <summary>
+            Interaction logic for ViewNotePage.xaml
+            </summary>
+            <summary>
+            ViewNotePage
+            </summary>
+        </member>
+        <member name="M:MyNotes.ViewNotePage.btnSave_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Save button click event,that update information of the chosen note in DataBase
+            </summary>
+            <param name="sender">Event sender</param>
+            <param name="e">RoutedEventArgs</param>
+        </member>
+        <member name="M:MyNotes.ViewNotePage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>        
+    </members>
+</doc>

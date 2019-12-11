@@ -1,11 +1,9 @@
 ﻿using System.Data.SQLite;
-using System.ComponentModel;
 using System;
-using System.Runtime.CompilerServices;
-using MyNotes.Binding;
+
 namespace MyNotes
 {
-    public class RegisterVM : INotifyPropertyChanged
+    public class RegisterVM
     {
         public RegisterVM() { }
 
@@ -16,12 +14,10 @@ namespace MyNotes
         /// <param name="UserName"></param>
         /// <param name="Email"></param>
         /// <param name="Password"></param>
-        
-        public void Action1(string UserName,string Email,string Password)
-        {
 
+        public void Action1(string UserName, string Email, string Password)
+        {
             SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
-            //var dbConnection = db.Database.Connection as SQLiteConnection;
             try
             {
                 sqliteCon.Open();
@@ -34,7 +30,7 @@ namespace MyNotes
                 {
                     count++;
                 }
-                if(count!=1)
+                if (count != 1)
                 {
 
                     string Query = "insert into Users(Username,Email,Password) values('" + UserName + "','" + Email + "','" + Password + "')";
@@ -61,14 +57,5 @@ namespace MyNotes
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
-        protected void NotifyPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-
     }
 }

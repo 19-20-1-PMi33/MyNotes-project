@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Xaml;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Text.RegularExpressions;
+
 namespace MyNotes
 {
     /// <summary>
@@ -46,10 +35,9 @@ namespace MyNotes
         {
             RegisterVM register = new RegisterVM();
             bool result = ValidatorExtensions.IsValidEmailAddress(txt2.Text);
-            // if (signed up)
-            if (txt1.Text == null|| txt2.Text == null||
-                pass2.Password.ToString() == null|| string.IsNullOrWhiteSpace(txt1.Text)||
-                string.IsNullOrWhiteSpace(txt2.Text)|| string.IsNullOrWhiteSpace(pass2.Password.ToString()))
+            if (txt1.Text == null || txt2.Text == null ||
+                pass2.Password.ToString() == null || string.IsNullOrWhiteSpace(txt1.Text) ||
+                string.IsNullOrWhiteSpace(txt2.Text) || string.IsNullOrWhiteSpace(pass2.Password.ToString()))
             {
                 MessageBox.Show("All rows must be fill in!");
             }
