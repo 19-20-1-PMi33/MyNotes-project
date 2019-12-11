@@ -39,6 +39,9 @@ namespace MyNotes
         {
             this.NavigationService.Navigate(new Uri("View/HomePage.xaml", UriKind.Relative));
         }
+        /// <summary>
+        /// Implements animation and functionality of loading progress bar
+        /// </summary>
         public LoadingPage()
         {
             InitializeComponent();

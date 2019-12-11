@@ -26,6 +26,9 @@ namespace MyNotes
             InitializeComponent();
             this.DataContext = new RegisterVM();
         }
+        /// <summary>
+        /// Checking email validation
+        /// </summary>
         public static class ValidatorExtensions
         {
             public static bool IsValidEmailAddress(string s)
@@ -34,6 +37,11 @@ namespace MyNotes
                 return regex.IsMatch(s);
             }
         }
+        /// <summary>
+        /// Realization of registering process
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
             RegisterVM register = new RegisterVM();

@@ -13,7 +13,11 @@ namespace MyNotes
         string dbConnectionString = @"Data Source=..\..\Data\mynotesDB.db";
 
         public LoginVM() {  }
-
+        /// <summary>
+        /// Realization of logging process,connection with data base
+        /// </summary>
+        /// <param name="Email"></param>
+        /// <param name="Password"></param>
         public void Action1(string Email,string Password) {
 
             SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);

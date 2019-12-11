@@ -10,7 +10,10 @@ namespace MyNotes
 
         string dbConnectionString = @"Data Source=..\..\Data\mynotesDB.db";
         public bool exist { get; set; }
-
+        /// <summary>
+        /// Updating User-name in database
+        /// </summary>
+        /// <param name="UserName"></param>
         public void Action1(string UserName)
         {            
             SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
@@ -24,6 +27,10 @@ namespace MyNotes
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
+        /// <summary>
+        /// Updating User-password in database
+        /// </summary>
+        /// <param name="Password"></param>
         public void Action2( string Password)
         {
             SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
@@ -37,6 +44,10 @@ namespace MyNotes
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
+        /// <summary>
+        /// Updating User-email in data base
+        /// </summary>
+        /// <param name="Email"></param>
         public void Action3(string Email)
         {
             SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);

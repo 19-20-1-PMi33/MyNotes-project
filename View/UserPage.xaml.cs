@@ -26,6 +26,11 @@ namespace MyNotes
             InitializeComponent();
             this.DataContext = new UserPageVM();
         }
+        /// <summary>
+        /// Updating user data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             UserPageVM user = new UserPageVM();

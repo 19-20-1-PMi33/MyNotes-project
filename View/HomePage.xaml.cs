@@ -26,7 +26,11 @@ namespace MyNotes
             InitializeComponent();
             this.DataContext = new HomePageVM();
         }
-
+        /// <summary>
+        /// LogOut functionality
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void LogOutButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("View/LoginPage.xaml", UriKind.Relative));

@@ -10,6 +10,12 @@ namespace MyNotes
         public RegisterVM() { }
 
         string dbConnectionString = @"Data Source=..\..\Data\mynotesDB.db";
+        /// <summary>
+        /// Realization of registering functionality and importing user-information to data base
+        /// </summary>
+        /// <param name="UserName"></param>
+        /// <param name="Email"></param>
+        /// <param name="Password"></param>
         
         public void Action1(string UserName,string Email,string Password)
         {

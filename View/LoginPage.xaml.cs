@@ -29,6 +29,9 @@ namespace MyNotes
             this.DataContext = new LoginVM();
             
         }
+        /// <summary>
+        /// Checking validation of email
+        /// </summary>
         public static class ValidatorExtensions
         {
             public static bool IsValidEmailAddress(string s)
@@ -38,7 +41,11 @@ namespace MyNotes
             }
         }
 
-
+        /// <summary>
+        /// Logging functionality 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void SignInButton_Click(object sender, RoutedEventArgs e)
         {
             
@@ -67,13 +74,6 @@ namespace MyNotes
                 }
             }
             // if (signed in)
-        }
-        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            if (this.DataContext != null)
-            {
-                ((dynamic)this.DataContext).Password = ((PasswordBox)sender).Password;
-            }
         }
 
         
