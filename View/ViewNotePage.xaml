@@ -7,19 +7,19 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ViewNotePage" WindowHeight="450" WindowWidth="800" 
-      Background="#CEB3AB" ShowsNavigationUI="False">
+      Background="#6D9DC5" ShowsNavigationUI="False">
 
     <Grid>
         <StackPanel Grid.Column="1">
-            <StackPanel Orientation="Horizontal" Height="40" Background="Gray">
-                <Button Name ="btnBack" Click="btnBack_Click" Content="Back" Background="#545d6a" Margin="10" Padding="10,0" Foreground="White" />
-                <Button Name ="btnSave" Click="btnSave_Click" Content="Save" Background="#545d6a" Margin="10" Padding="10,0" Foreground="White" Command="{Binding SaveCommand}"/>
+            <StackPanel Orientation="Horizontal" Height="40" Background="#4E8AAD">
+                <Button Name ="btnBack" Click="btnBack_Click" Content="Back" Background="#1B4965" Margin="10" Padding="10,0" Foreground="#BEE9E8" />
+                <Button Name ="btnSave" Click="btnSave_Click" Content="Save" Background="#1B4965" Margin="10" Padding="10,0" Foreground="#BEE9E8" Command="{Binding SaveCommand}"/>
             </StackPanel>
             <Separator></Separator>
-            <TextBox Name="txt1" MaxLength="50" Background="#EDE3E0"></TextBox>
-          <Separator></Separator>
-            <TextBox Name="txt2" AcceptsReturn="True" Background="#EDE3E0" Height="385" VerticalScrollBarVisibility="Auto"
-         HorizontalScrollBarVisibility="Auto"></TextBox>
+            <TextBox x:Name="txt1" MaxLength="50" Background="#BEE9E8" Text="{Binding Title}" Foreground="#1B4965" FontWeight="Bold" Height="30" FontSize="17"/>
+            <Separator></Separator>
+            <TextBox x:Name="txt2" AcceptsReturn="True" Background="#BEE9E8" Foreground="#1B4965" FontWeight="DemiBold" FontSize="16" Height="385" VerticalScrollBarVisibility="Auto"
+       HorizontalScrollBarVisibility="Auto" Text="{Binding Description}"/>
         </StackPanel>
     
     </Grid>
