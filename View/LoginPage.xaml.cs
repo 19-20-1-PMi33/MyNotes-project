@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Globalization;
+using System.Text.RegularExpressions;
 namespace MyNotes
 {
 
@@ -28,14 +29,21 @@ namespace MyNotes
             this.DataContext = new LoginVM();
             
         }
-
+        public static class ValidatorExtensions
+        {
+            public static bool IsValidEmailAddress(string s)
+            {
+                Regex regex = new Regex(@"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$");
+                return regex.IsMatch(s);
+            }
+        }
 
 
         void SignInButton_Click(object sender, RoutedEventArgs e)
         {
             
             LoginVM login = new LoginVM();
-            login.Action1(txt_box1.Text, pass.Password.ToString());
+            bool result = ValidatorExtensions.IsValidEmailAddress(txt_box1.Text);
             if (txt_box1.Text == null || pass.Password.ToString() == null ||
                  string.IsNullOrWhiteSpace(txt_box1.Text) ||
                 string.IsNullOrWhiteSpace(pass.Password.ToString()))
@@ -44,16 +52,20 @@ namespace MyNotes
             }
             else
             {
-                if (App.currentUser != null)
-                {
-                    this.NavigationService.Navigate(new Uri("View/LoadingPage.xaml", UriKind.Relative));
-                }
+                if (result == false) { MessageBox.Show("Incorrect Email validation!"); }
                 else
                 {
-                    MessageBox.Show("Account doesn`t exist!");
+                    login.Action1(txt_box1.Text, pass.Password.ToString());
+                    if (App.currentUser != null)
+                    {
+                        this.NavigationService.Navigate(new Uri("View/LoadingPage.xaml", UriKind.Relative));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Account doesn`t exist!");
+                    }
                 }
             }
-
             // if (signed in)
         }
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
